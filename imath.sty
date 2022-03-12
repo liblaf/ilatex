@@ -1,0 +1,60 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{imath}[2022/03/12 Math Package]
+
+\providecommand{\ipp}[1]{\left( #1 \right)}
+\providecommand{\ibb}[1]{\left[ #1 \right]}
+\providecommand{\iBB}[1]{\left\{ #1 \right\}}
+\providecommand{\iaa}[1]{\left\langle #1 \right\rangle}
+\providecommand{\ivv}[1]{\left| #1 \right|}
+\providecommand{\iVV}[1]{\left\| #1 \right\|}
+\providecommand{\ibp}[1]{\left[ #1 \right)}
+\providecommand{\ipb}[1]{\left( #1 \right]}
+\providecommand{\irv}[1]{\left. #1 \right|}
+
+\RequirePackage{ifthen}
+\providecommand{\imid}{\,\middle|\,}
+\providecommand{\id}[1][]{\,\mathrm{d}\ifthenelse{\equal{#1}{}}{}{\left( #1 \right)}}
+\providecommand{\ip}[1][]{\partial\ifthenelse{\equal{#1}{}}{}{\left( #1 \right)}}
+\providecommand{\idd}[2]{\frac{\,\mathrm{d} #1}{\,\mathrm{d} #2}}
+\providecommand{\ipp}[2]{\frac{\partial #1}{\partial #2}}
+
+\providecommand{\iob}[1]{\overline{\mathbf{#1}}}
+\providecommand{\iub}[1]{\underline{\mathbf{#1}}}
+\providecommand{\iwhb}[1]{\widehat{\mathbf{#1}}}
+\providecommand{\iwtb}[1]{\widetilde{\mathbf{#1}}}
+\providecommand{\iorab}[1]{\overrightarrow{\mathbf{#1}}}
+\providecommand{\iolab}[1]{\overleftarrow{\mathbf{#1}}}
+\providecommand{\iobb}[1]{\overbrace{\mathbf{#1}}}
+\providecommand{\iubb}[1]{\underbrace{\mathbf{#1}}}
+
+\RequirePackage{bm}
+\providecommand{\iobm}[1]{\overline{\bm{#1}}}
+\providecommand{\iubm}[1]{\underline{\bm{#1}}}
+\providecommand{\iwhbm}[1]{\widehat{\bm{#1}}}
+\providecommand{\iwtbm}[1]{\widetilde{\bm{#1}}}
+\providecommand{\iorabm}[1]{\overrightarrow{\bm{#1}}}
+\providecommand{\iolabm}[1]{\overleftarrow{\bm{#1}}}
+\providecommand{\iobbm}[1]{\overbrace{\bm{#1}}}
+\providecommand{\iubbm}[1]{\underbrace{\bm{#1}}}
+
+\providecommand{\ihb}[1]{\hat{\mathbf{#1}}}
+\providecommand{\idb}[1]{\dot{\mathbf{#1}}}
+\providecommand{\icb}[1]{\check{\mathbf{#1}}}
+\providecommand{\iddb}[1]{\ddot{\mathbf{#1}}}
+\providecommand{\itb}[1]{\tilde{\mathbf{#1}}}
+\providecommand{\ibb}[1]{\breve{\mathbf{#1}}}
+\providecommand{\iab}[1]{\acute{\mathbf{#1}}}
+\providecommand{\ibab}[1]{\bar{\mathbf{#1}}}
+\providecommand{\igb}[1]{\grave{\mathbf{#1}}}
+\providecommand{\ivb}[1]{\vec{\mathbf{#1}}}
+
+\providecommand{\ihbm}[1]{\hat{\bm{#1}}}
+\providecommand{\idbm}[1]{\dot{\bm{#1}}}
+\providecommand{\icbm}[1]{\check{\bm{#1}}}
+\providecommand{\iddbm}[1]{\ddot{\bm{#1}}}
+\providecommand{\itbm}[1]{\tilde{\bm{#1}}}
+\providecommand{\ibbm}[1]{\breve{\bm{#1}}}
+\providecommand{\iabm}[1]{\acute{\bm{#1}}}
+\providecommand{\ibabm}[1]{\bar{\bm{#1}}}
+\providecommand{\igbm}[1]{\grave{\bm{#1}}}
+\providecommand{\ivbm}[1]{\vec{\bm{#1}}}
