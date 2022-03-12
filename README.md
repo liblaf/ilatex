@@ -14,7 +14,7 @@ Simply copy the `*.cls` and / or `*.sty` files to the same folder of the `*.tex`
 
 ### Install to `TEXMFLOCAL`
 
-Use [install.sh](install.sh) 或 [install.ps1](install.ps1) to install `ilatex` to `TEXMFLOCAL` (`sudo` permission may be needed). After that, you won't need to copy `*.cls` and `*.sty` files to your work folder.
+Use [install.sh](install.sh) (Bash script) or [install.ps1](install.ps1) (PowerShell script) to install `ilatex` to `TEXMFLOCAL` (`sudo` permission may be needed). After that, you won't need to copy `*.cls` and `*.sty` files to your work folder.
 
 ## Manual
 
