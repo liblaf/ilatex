@@ -5,6 +5,7 @@ Simple LaTeX templates
 | Filename               | Description         |
 | ---------------------- | ------------------- |
 | [iwork.cls](iwork.cls) | Coursework template |
+| [imath.sty](imath.sty) | Math package        |
 
 ## Usage
 
