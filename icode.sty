@@ -1,0 +1,42 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{icode}[2022/03/26 Code Highlighting Package]
+
+\RequirePackage{xcolor}
+
+% configure listings
+\RequirePackage{listings}
+\definecolor{icodeGreen}{rgb}{0,0.6,0}
+\definecolor{icodeGray}{rgb}{0.5,0.5,0.5}
+\definecolor{icodePurple}{rgb}{0.58,0,0.82}
+\definecolor{icodeBackColor}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{icodeStyle}{
+  backgroundcolor=\color{icodeBackColor},
+  commentstyle=\color{icodeGreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{icodeGray},
+  stringstyle=\color{icodePurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+\lstset{style=icodeStyle}
+
+% configure minted
+\RequirePackage{minted}
+\definecolor{icodeLightGray}{gray}{0.9}
+\setminted{
+  frame=lines,
+  framesep=2mm,
+  baselinestretch=1.2,
+  bgcolor=icodeLightGray,
+  fontsize=\footnotesize,
+  linenos
+}
