@@ -1,4 +1,4 @@
-$TEXMFLOCAL = (kpsewhich -var-value TEXMFLOCAL)
-Copy-Item "*.cls" -Destination "$TEXMFLOCAL/tex/latex/local/"
-Copy-Item "*.sty" -Destination "$TEXMFLOCAL/tex/latex/local/"
+$TEXMFHOME = (kpsewhich -var-value TEXMFHOME)
+Copy-Item "*.cls" -Destination "$TEXMFHOME/tex/latex/local/"
+Copy-Item "*.sty" -Destination "$TEXMFHOME/tex/latex/local/"
 texhash
