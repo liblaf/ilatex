@@ -4,6 +4,23 @@
 % load in the main exam class with appropriate options
 \LoadClass[a4paper]{exam}
 
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{enumitem}
+\RequirePackage{etoolbox}
+\RequirePackage{float}
+\RequirePackage{hyperref}
+\RequirePackage{physics}
+\RequirePackage{siunitx}
+\RequirePackage{subcaption}
+\RequirePackage{tcolorbox}
+\RequirePackage{xcolor}
+
+\RequirePackage{cleveref}
+
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+
 % space out the lines by 25% more than the default (basically 1.5 line spacing)
 \linespread{1.25}
 
@@ -26,13 +43,13 @@
 \pagestyle{headandfoot}
 \lhead{}
 \chead[
-  \bfseries \Large \theCourse \leavevmode \\
-  \large Sheet \theSheetNumber \ Solutions \quad --- \quad \theTerm \leavevmode \\
+  \bfseries \Large \@course \leavevmode \\
+  \large Sheet \@sheetNumber \ Solutions \quad --- \quad \@semester \leavevmode \\
   \@title \leavevmode \\
-  \@author
+  \ifstrempty{\@class}{}{\@class \quad} \ifstrempty{\@id}{}{\@id \quad} \@author
 ]{}
-\rhead[]{\bfseries \theCourse: Sheet \theSheetNumber \ Solutions --- \theTerm}
-\lfoot{\footnotesize \theDepartment \leavevmode \\ \href{mailto:\theContact}{\theContact}}
+\rhead[]{\bfseries \@course: Sheet \@sheetNumber \ Solutions --- \@semester}
+\lfoot{\footnotesize \@department \leavevmode \\ \href{mailto:\@email}{\@email}}
 \cfoot{}
 \rfoot{Page \thepage{} of \numpages}
 \footrule
@@ -40,72 +57,71 @@
 % define newcommands for user set page header details
 \title{}
 \author{Qin Li}
-\newcommand{\iterm}[1]{\def\theTerm{#1}}
-\newcommand{\icourse}[1]{\def\theCourse{#1}}
-\newcommand{\isheetNumber}[1]{\def\theSheetNumber{#1}}
-\iterm{Spring Term 2021 -- 2022}
-\icourse{Course Name}
-\isheetNumber{0}
+\newcommand{\class}[1]{\def\@class{#1}}
+\newcommand{\id}[1]{\def\@id{#1}}
+\newcommand{\semester}[1]{\def\@semester{#1}}
+\newcommand{\course}[1]{\def\@course{#1}}
+\newcommand{\sheetNumber}[1]{\def\@sheetNumber{#1}}
+\class{未央-水木 02}
+\id{2020012872}
+\semester{Autumn Term 2022 -- 2023}
+\course{Course Name}
+\sheetNumber{0}
 
 % define a command for user to set some contact info in the footer
-\newcommand{\idepartment}[1]{\def\theDepartment{#1}}
-\newcommand{\icontact}[1]{\def\theContact{#1}}
-\idepartment{Weiyang College, Tsinghua University}
-\icontact{liqin20@mails.tsinghua.edu.cn}
+\newcommand{\department}[1]{\def\@department{#1}}
+\newcommand{\email}[1]{\def\@email{#1}}
+\department{Weiyang College, Tsinghua University}
+\email{liqin20@mails.tsinghua.edu.cn}
 
-\RequirePackage{hyperref}
 \hypersetup{
-  colorlinks=true,
+  colorlinks = true,
 }
 
-\RequirePackage{tcolorbox}
 \tcbuselibrary{breakable, skins}
-\newcounter{iproblemCounter}
+\newcounter{probCounter}
 \newtcolorbox[
   auto counter,
-  use counter = iproblemCounter,
-]{iproblem}[1][]{
-  title       = {Problem \thetcbcounter. #1},
-  colframe    = blue!75!white,
-  colback     = blue!5!white,
-  fonttitle   = \bfseries,
+  use counter = probCounter,
+]{prob}[1][]{
+  title     = {Problem \thetcbcounter. #1},
+  colframe  = blue!75!white,
+  colback   = blue!5!white,
+  fonttitle = \bfseries,
   breakable,
   enhanced,
 }
-\RequirePackage{amsthm}
-\RequirePackage{xcolor}
+
 \theoremstyle{remark}
-\newtheorem*{ianswer}{{\color{blue} Answer}}
-\newtheorem*{isolution}{{\color{blue} Solution}}
+\newtheorem*{ans}{{\color{blue} Answer}}
+\newtheorem*{sol}{{\color{blue} Solution}}
 \renewcommand{\proofname}{{\color{blue} Proof}}
 
-\RequirePackage{ifthen}
-\newcommand{\iproblemNumber}[1][]{
-  \ifthenelse{\equal{#1}{}}{
+\newcommand{\probNumber}[1][]{
+  \ifstrempty{#1}{
   }{
-    \setcounter{iproblemCounter}{#1}
-    \addtocounter{iproblemCounter}{-1}
+    \setcounter{probCounter}{#1}
+    \addtocounter{probCounter}{-1}
   }
 }
 
-\RequirePackage{enumitem}
-\newlist{iparts}{enumerate}{2}
-\newcommand{\ipartLabel}{\arabic*.}
-\setlist[iparts]{label*=\ipartLabel}
-\newcommand{\ipart}[1][]{
-  \ifthenelse{\equal{#1}{}}{
+\newlist{subprobs}{enumerate}{2}
+\newcommand{\subprobLabel}{\arabic*.}
+\setlist[subprobs]{label*=\subprobLabel}
+\newcommand{\subprob}[1][]{
+  \ifstrempty{#1}{
   }{
-    \setcounter{ipartsi}{#1}
-    \addtocounter{ipartsi}{-1}
+    \setcounter{subprobsi}{#1}
+    \addtocounter{subprobsi}{-1}
   }
   \item
 }
-\newenvironment{isubparts}{\begin{iparts}}{\end{iparts}}
-\newcommand{\isubpart}[1][]{
-  \ifthenelse{\equal{#1}{}}{
+\newenvironment{subsubprobs}{\begin{subprobs}}{\end{subprobs}}
+\newcommand{\subsubprob}[1][]{
+  \ifstrempty{#1}{
   }{
-    \setcounter{ipartsii}{#1}
-    \addtocounter{ipartsii}{-1}
+    \setcounter{subprobsii}{#1}
+    \addtocounter{subprobsii}{-1}
   }
   \item
 }
