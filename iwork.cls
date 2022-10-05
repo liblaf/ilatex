@@ -16,6 +16,7 @@
 \RequirePackage{subcaption}
 \RequirePackage{tcolorbox}
 \RequirePackage{xcolor}
+\RequirePackage{xparse}
 
 \RequirePackage{cleveref}
 
@@ -124,4 +125,13 @@
     \addtocounter{subprobsii}{-1}
   }
   \item
+}
+
+\newcommand{\image}[2][]{
+  \begin{figure}[H]
+    \centering
+    \includegraphics[height=0.3\linewidth]{assets/#2}
+    \caption{#1}
+    \label{fig:#2}
+  \end{figure}
 }
