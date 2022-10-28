@@ -50,33 +50,33 @@ TODO
 
 Read package documentation / manual for more detailed instructions.
 
-| Name                                              | Description                                                | Useful Commands / Environments                               |
-| ------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
-| [amsfonts](https://ctan.org/pkg/amsfonts)         | TeX fonts from the American Mathematical Society           |                                                              |
-| [amsmath](https://www.ctan.org/pkg/amsmath)       | AMS mathematical facilities for LaTeX                      |                                                              |
-| amssymb                                           |                                                            |                                                              |
-| [amsthm](https://www.ctan.org/pkg/amsthm)         | Typesetting theorems (AMS style)                           | `\newtheorem`, `\theoremstyle`                               |
-| [bm](https://www.ctan.org/pkg/bm)                 | Access bold symbols in maths mode                          | `\bm`                                                        |
-| [booktabs](https://www.ctan.org/pkg/booktabs/)    | Publication quality tables in LaTeX                        | `\toprule`, `\midrule`, `\bottomrule`                        |
-| [ctex](https://www.ctan.org/pkg/ctex)             | LaTeX classes and packages for Chinese typesetting         |                                                              |
-| [enumitem](https://www.ctan.org/pkg/enumitem)     | Control layout of itemize, enumerate, description          | `\newlist`                                                   |
-| [esint](https://www.ctan.org/pkg/esint)           | Extended set of integrals for Computer Modern              | `\oiint`                                                     |
-| [fancyhdr](https://www.ctan.org/pkg/fancyhdr)     | Extensive control of page headers and footers in LaTeX2e   | `\pagestyle`                                                 |
-| [float](https://www.ctan.org/pkg/float)           | Improved interface for floating objects                    | float option `H`                                             |
-| [geometry](https://www.ctan.org/pkg/geometry)     | Flexible and complete interface to document dimensions     | `\geometry`                                                  |
-| [graphicx](https://ctan.org/pkg/graphicx)         | Enhanced support for graphics                              | `\includegraphics`                                           |
-| [hyperref](https://ctan.org/pkg/hyperref)         | Extensive support for hypertext in LaTeX                   | `\hypersetup`, `\href`, `\url`                               |
-| [listings](https://www.ctan.org/pkg/listings)     | Typeset source code listings using LaTeX                   | `{lstlisting}`                                               |
-| [longtable](https://ctan.org/pkg/longtable)       | Allow tables to flow over page boundaries                  | `{longtable}`                                                |
-| [mathrsfs](https://www.ctan.org/pkg/mathrsfs)     | Support for using RSFS fonts in maths                      | `\mathscr`                                                   |
-| [minted](https://www.ctan.org/pkg/minted)         | Highlighted source code for LaTeX                          | `\inputminted`, `\setminted`                                 |
-| [multirow](https://www.ctan.org/pkg/multirow)     | Create tabular cells spanning multiple rows                | `\multirow`, `\multicolumn`                                  |
-| [mhchem](https://www.ctan.org/pkg/mhchem)         | Typeset chemical formulae/equations and H and P statements | `\ce`                                                        |
-| [pdfpages](https://www.ctan.org/pkg/pdfpages)     | Include PDF documents in LaTeX                             | `\includepdf`                                                |
+| Name                                              | Description                                                | Useful Commands / Environments                                       |
+| ------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| [amsfonts](https://ctan.org/pkg/amsfonts)         | TeX fonts from the American Mathematical Society           |                                                                      |
+| [amsmath](https://www.ctan.org/pkg/amsmath)       | AMS mathematical facilities for LaTeX                      |                                                                      |
+| amssymb                                           |                                                            |                                                                      |
+| [amsthm](https://www.ctan.org/pkg/amsthm)         | Typesetting theorems (AMS style)                           | `\newtheorem`, `\theoremstyle`                                       |
+| [bm](https://www.ctan.org/pkg/bm)                 | Access bold symbols in maths mode                          | `\bm`                                                                |
+| [booktabs](https://www.ctan.org/pkg/booktabs/)    | Publication quality tables in LaTeX                        | `\toprule`, `\midrule`, `\bottomrule`                                |
+| [ctex](https://www.ctan.org/pkg/ctex)             | LaTeX classes and packages for Chinese typesetting         |                                                                      |
+| [enumitem](https://www.ctan.org/pkg/enumitem)     | Control layout of itemize, enumerate, description          | `\newlist`                                                           |
+| [esint](https://www.ctan.org/pkg/esint)           | Extended set of integrals for Computer Modern              | `\oiint`                                                             |
+| [fancyhdr](https://www.ctan.org/pkg/fancyhdr)     | Extensive control of page headers and footers in LaTeX2e   | `\pagestyle`                                                         |
+| [float](https://www.ctan.org/pkg/float)           | Improved interface for floating objects                    | float option `H`                                                     |
+| [geometry](https://www.ctan.org/pkg/geometry)     | Flexible and complete interface to document dimensions     | `\geometry`                                                          |
+| [graphicx](https://ctan.org/pkg/graphicx)         | Enhanced support for graphics                              | `\includegraphics`                                                   |
+| [hyperref](https://ctan.org/pkg/hyperref)         | Extensive support for hypertext in LaTeX                   | `\hypersetup`, `\href`, `\url`                                       |
+| [listings](https://www.ctan.org/pkg/listings)     | Typeset source code listings using LaTeX                   | `{lstlisting}`                                                       |
+| [longtable](https://ctan.org/pkg/longtable)       | Allow tables to flow over page boundaries                  | `{longtable}`                                                        |
+| [mathrsfs](https://www.ctan.org/pkg/mathrsfs)     | Support for using RSFS fonts in maths                      | `\mathscr`                                                           |
+| [minted](https://www.ctan.org/pkg/minted)         | Highlighted source code for LaTeX                          | `\inputminted`, `\setminted`                                         |
+| [multirow](https://www.ctan.org/pkg/multirow)     | Create tabular cells spanning multiple rows                | `\multirow`, `\multicolumn`                                          |
+| [mhchem](https://www.ctan.org/pkg/mhchem)         | Typeset chemical formulae/equations and H and P statements | `\ce`                                                                |
+| [pdfpages](https://www.ctan.org/pkg/pdfpages)     | Include PDF documents in LaTeX                             | `\includepdf`                                                        |
 | [siunitx](https://ctan.org/pkg/siunitx)           | A comprehensive (SI) units package                         | `\ang`, `\num`, `\unit`, `\qty`, `\numlist`, `\qtylist`, `\tablenum` |
-| [subcaption](https://www.ctan.org/pkg/subcaption) | Support for sub-captions                                   | `\subcaptionbox`                                             |
-| [url](https://www.ctan.org/pkg/url)               | Verbatim with URL-sensitive line breaks                    | `\url`                                                       |
-| [xcolor](https://www.ctan.org/pkg/xcolor)         | Driver-independent color extensions for LaTeX and pdfLaTeX | `\color`, `\textcolor`, `\definecolor`                       |
+| [subcaption](https://www.ctan.org/pkg/subcaption) | Support for sub-captions                                   | `\subcaptionbox`                                                     |
+| [url](https://www.ctan.org/pkg/url)               | Verbatim with URL-sensitive line breaks                    | `\url`                                                               |
+| [xcolor](https://www.ctan.org/pkg/xcolor)         | Driver-independent color extensions for LaTeX and pdfLaTeX | `\color`, `\textcolor`, `\definecolor`                               |
 
 ### Useful Tools
 
