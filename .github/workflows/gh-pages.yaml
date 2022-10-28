@@ -35,7 +35,7 @@ jobs:
         env:
           TEXINPUTS: ".:./src//:"
       - run: |
-          bash scripts/demo.sh install
+          cp ${{ github.workspace }}/demo/**/*.pdf docs/demo/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
