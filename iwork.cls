@@ -33,17 +33,18 @@
   enhanced,
 }
 
+\NewTasksEnvironment[
+  label = \Alph*.,
+  ref   = \Alph*,
+]{choices}[\choice](4)
+
 \theoremstyle{remark}
 \newtheorem*{sol}{\textcolor{blue}{Solution}}
 \renewcommand{\proofname}{\textcolor{blue}{Proof}}
 
-\DeclareDocumentCommand{\image}{O{} m}{
-  \begin{figure}[H]
-    \centering
-    \includegraphics[height=0.3\linewidth]{assets/#2}
-    \caption{#1}
-    \label{fig:#2}
-  \end{figure}
+\author{
+  \thename \quad \theid \\
+  \theclass
 }
 
 \course{}
