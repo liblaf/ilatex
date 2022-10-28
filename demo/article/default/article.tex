@@ -1,0 +1,64 @@
+\documentclass{iarticle}
+\usepackage{lipsum}
+
+\DeclareDocumentCommand{\pkg}{m}{\href{https://texdoc.org/pkg/#1}{#1}}
+\NewTasksEnvironment[label = \textbullet]{pkgs}
+
+\class{Class 02}
+\course{Lab. Report}
+\email{liqin20@mails.tsinghua.edu.cn}
+\id{2020012872}
+\name{Qin Li}
+\title{Article Title}
+
+\begin{document}
+
+\begin{abstract}
+  \lipsum[1]
+  \keywords{A; B; C}
+\end{abstract}
+
+\tableofcontents
+
+\section{Packages}
+
+\begin{pkgs}(6)
+  \task \pkg{amsmath}
+  \task \pkg{amssymb}
+  \task \pkg{amsthm}
+  \task \pkg{array}
+  \task \pkg{booktabs}
+  \task \pkg{caption}
+  \task \pkg{enumitem}
+  \task \pkg{etoolbox}
+  \task \pkg{fancyhdr}
+  \task \pkg{float}
+  \task \pkg{fontspec}
+  \task \pkg{geometry}
+  \task \pkg{graphicx}
+  \task \pkg{hyperref}
+  \task \pkg{import}
+  \task \pkg{lastpage}
+  \task \pkg{mathtools}
+  \task \pkg{microtype}
+  \task \pkg{multicol}
+  \task \pkg{multirow}
+  \task \pkg{physics}
+  \task \pkg{siunitx}
+  \task \pkg{subcaption}
+  \task \pkg{tabularx}
+  \task \pkg{tasks}
+  \task \pkg{tcolorbox}
+  \task \pkg{ulem}
+  \task \pkg{xcolor}
+  \task \pkg{xkeyval}
+  \task \pkg{xparse}
+\end{pkgs}
+
+\appendix
+
+\section{Appendix Title}
+
+\lipsum[2]
+
+\end{document}
