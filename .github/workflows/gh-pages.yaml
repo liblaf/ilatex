@@ -27,11 +27,13 @@ jobs:
         with:
           root_file: "demo/**/*.tex"
           glob_root_file: true
-          pre_compile: "bash scripts/demo.sh prepare"
-          post_compile: "bash scripts/demo.sh install"
           work_in_root_file_dir: true
           latexmk_shell_escape: true
           latexmk_use_xelatex: true
+        env:
+          TEXINPUTS: ".:./src//:"
+      - run: |
+          bash scripts/demo.sh install
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
