@@ -6,17 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,7 +21,7 @@ jobs:
         env:
           TEXINPUTS: ".:./src//:"
       - run: |
-          cp *.pdf docs/demo/
+          mv *.pdf docs/demo/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
