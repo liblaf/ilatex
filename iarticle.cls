@@ -13,6 +13,7 @@
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{array}
+\RequirePackage{booktabs}
 \RequirePackage{caption}
 \RequirePackage{enumitem}
 \RequirePackage{etoolbox}
@@ -22,7 +23,6 @@
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
-\RequirePackage{ifthen}
 \RequirePackage{import}
 \RequirePackage{lastpage}
 \RequirePackage{mathtools}
@@ -35,7 +35,9 @@
 \RequirePackage{tabularx}
 \RequirePackage{tasks}
 \RequirePackage{tcolorbox}
+\RequirePackage{ulem}
 \RequirePackage{xcolor}
+\RequirePackage{xkeyval}
 \RequirePackage{xparse}
 
 \RequirePackage{cleveref}
@@ -43,6 +45,7 @@
 \ifbool{chinese}{\RequirePackage{ctex}}{}
 
 \floatplacement{figure}{H}
+\floatplacement{table}{H}
 \geometry{
   hmargin = 20mm,
   paper   = a4paper,
@@ -116,6 +119,15 @@
 }
 
 \ifbool{chinese}{
+  \sisetup{
+    list-final-separator = 和,
+    list-pair-separator  = 和,
+    per-mode             = symbol,
+    range-phrase         = --,
+  }
+}{}
+
+\ifbool{chinese}{
   \DeclareDocumentCommand{\keywordsname}{}{关键词}
 }{
   \DeclareDocumentCommand{\keywordsname}{}{Keywords}
@@ -125,8 +137,37 @@
   \textbf{\keywordsname :} #1
 }
 
+\define@cmdkey{image}{caption}[]{}
+\define@cmdkey{image}{label}[]{}
+\DeclareDocumentCommand{\image}{O{} O{} m}{
+  \presetkeys{image}{
+    caption,
+    label,
+  }{}
+  \setkeys{image}{#1}
+  \begin{figure}[H]
+    \centering
+    \ifstrempty{#2}{
+      \includegraphics[height = 0.3\linewidth]{#3}
+    }{
+      \includegraphics[#2]{#3}
+    }
+    \ifx\cmdKV@image@caption\empty
+      \caption{}
+    \else
+      \caption{\cmdKV@image@caption}
+    \fi
+    \ifx\cmdKV@image@label\empty
+      \label{fig:#3}
+    \else
+      \label{fig:\cmdKV@image@label}
+    \fi
+  \end{figure}
+}
+
 \AtBeginDocument{\maketitle}
 
+\graphicspath{{assets}}
 \email{liqin20@mails.tsinghua.edu.cn}
 \id{2020012872}
 \ifbool{chinese}{
