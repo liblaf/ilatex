@@ -5,9 +5,7 @@ set -o nounset
 REPO_HOME="$(dirname "$(dirname "$(realpath "${0}")")")"
 
 function prepare-pkgs() {
-  for file in ${REPO_HOME}/src/*; do
-    ln --symbolic "${file}" "${1}/$(basename "${file}")"
-  done
+  cp ${REPO_HOME}/src/* "${1}/"
 }
 
 demos=(

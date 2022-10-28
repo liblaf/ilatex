@@ -23,15 +23,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - run: |
-          bash scripts/pre-deploy.sh
       - uses: xu-cheng/latex-action@v2
         with:
-          root_file: |
-            demo/article/default/article.tex
-            demo/article/twocolumn/article-twocolumn.tex
-            demo/article/zh/article-zh.tex
-            demo/work/default/work.tex
+          glob_root_file: "demo/**/*.tex"
+          pre_compile: "bash scripts/pre-deploy.sh"
           work_in_root_file_dir: true
           latexmk_shell_escape: true
           latexmk_use_xelatex: true
