@@ -1,0 +1,44 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: |
+          bash scripts/pre-deploy.sh
+      - uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            demo/article/default/article.tex
+            demo/article/twocolumn/article-twocolumn.tex
+            demo/article/zh/article-zh.tex
+            demo/work/default/work.tex
+          work_in_root_file_dir: true
+          latexmk_shell_escape: true
+          latexmk_use_xelatex: true
+      - run: |
+          mv demo/**/*.pdf docs/demo/
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: docs
+          enable_jekyll: true
