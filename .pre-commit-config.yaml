@@ -1,8 +1,13 @@
 ci:
   skip:
     - latexindent
+    - poetry-lock
 
 repos:
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: "v2.37.0"
+    hooks:
+      - id: commitizen
   - repo: https://github.com/cmhughes/latexindent.pl
     rev: "V3.18"
     hooks:
@@ -12,32 +17,44 @@ repos:
           - "--silent"
           - "--local"
           - "--yaml=defaultIndent: '  '"
-  - repo: https://github.com/commitizen-tools/commitizen
-    rev: v2.35.0
+  - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: "v2.4.0"
     hooks:
-      - id: commitizen
+      - id: pretty-format-toml
+        exclude: poetry.lock
   - repo: https://github.com/pre-commit/mirrors-clang-format
     rev: "v14.0.6"
     hooks:
       - id: clang-format
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v3.0.0-alpha.3"
+    rev: "v3.0.0-alpha.4"
     hooks:
       - id: prettier
+        exclude: .cz.yaml
         stages:
           - commit
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: "v4.3.0"
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
+      - id: check-json
       - id: check-symlinks
+      - id: check-toml
       - id: check-yaml
       - id: destroyed-symlinks
       - id: end-of-file-fixer
+        exclude: requirements.txt
+      - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/psf/black
     rev: "22.10.0"
     hooks:
       - id: black
       - id: black-jupyter
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.2.1"
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-export
