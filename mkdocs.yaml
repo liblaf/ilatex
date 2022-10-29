@@ -1,4 +1,4 @@
-site_name: template
+site_name: ilatex
 theme:
   name: material
   palette:
@@ -15,9 +15,9 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
   - git-committers:
-      repository: liblaf/template
+      repository: liblaf/ilatex
       branch: main
   - git-authors
-repo_url: https://github.com/liblaf/template
-repo_name: liblaf/template
+repo_url: https://github.com/liblaf/ilatex
+repo_name: liblaf/ilatex
 edit_uri: edit/main/docs
