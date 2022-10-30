@@ -16,13 +16,13 @@ Simple LaTeX templates
 
 ## Usage
 
-### Installation Free
+### Include What You Use
 
 Simply copy the `*.cls` and / or `*.sty` files to the same folder of the `*.tex` file you are working on.
 
-### Install to `TEXMFLOCAL`
+### Install to `TEXMFHOME`
 
-Use [install.sh](install.sh) to install `ilatex` to `TEXMFLOCAL` (`sudo` permission may be needed). After that, you won't need to copy `*.cls` and `*.sty` files to your work folder.
+Use [scripts/install.sh](https://github.com/liblaf/ilatex/blob/main/scripts/install.sh) to install `ilatex` to `TEXMFHOME` ( `TEXMFLOCAL` is OK ). After that, you won't need to copy `*.cls` and `*.sty` to your work folder.
 
 ## Manual
 
@@ -33,21 +33,39 @@ Since the templates are mostly used by myself only, I'm too lazy to write a manu
 - [Home - LaTeX-Tutorial.com](https://latex-tutorial.com/)
 - [Documentation - Overleaf](https://www.overleaf.com/learn)
 
-### Environment Setup
+## Environment Setup
 
-#### Overleaf
+### Overleaf
 
 Visit [Overleaf, Online LaTeX Editor](https://www.overleaf.com) for more detail.
 
-#### Local Setup
+### Local Setup
 
-TODO
+#### Homebrew ( recommended )
 
-### Useful Reference
+```bash
+brew install texlive
+```
+
+#### APT ( stable )
+
+```bash
+sudo apt install texlive-full
+```
+
+#### VS Code Extension
+
+- [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+
+```bash
+code --install-extension james-yu.latex-workshop --force
+```
+
+## Useful Reference
 
 - [The Comprehensive LaTeX Symbol List (ctan.org)](http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf)
 
-### Useful Packages
+## Useful Packages
 
 Read package documentation / manual for more detailed instructions.
 
@@ -79,8 +97,9 @@ Read package documentation / manual for more detailed instructions.
 | [url](https://www.ctan.org/pkg/url)               | Verbatim with URL-sensitive line breaks                    | `\url`                                                               |
 | [xcolor](https://www.ctan.org/pkg/xcolor)         | Driver-independent color extensions for LaTeX and pdfLaTeX | `\color`, `\textcolor`, `\definecolor`                               |
 
-### Useful Tools
+## Useful Tools
 
+- [liblaf/texdoc-cli: CLI for texdoc.org (github.com)](https://github.com/liblaf/texdoc-cli)
 - [Overleaf, Online LaTeX Editor](https://www.overleaf.com)
 - [Detexify LaTeX handwritten symbol recognition (kirelabs.org)](http://detexify.kirelabs.org/classify.html)
 - [Shapecatcher: Draw the Unicode character you want!](http://shapecatcher.com/)
