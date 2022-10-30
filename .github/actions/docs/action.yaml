@@ -10,17 +10,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Build Demos
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: "demo/**/*.tex"
-        glob_root_file: true
-        latexmk_shell_escape: true
-        latexmk_use_xelatex: true
-      env:
-        TEXINPUTS: ".:./src//:"
-    - shell: bash
-      run: mv *.pdf docs/demo
     - name: Setup Python
       id: setup-python
       uses: actions/setup-python@v4
@@ -37,7 +26,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: .venv
-        key: venv-docs-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+        key: venv-docs-${{ runner.os }}-${{ runner.arch }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
     - if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       name: Install dependencies
       shell: bash

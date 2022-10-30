@@ -11,10 +11,13 @@ version_files = ["pyproject.toml:version"]
 [tool.poetry]
 name = "ilatex"
 version = "0.3.1"
-description = ""
+description = "Simple LaTeX Templates"
 authors = ["Qin Li <liblaf@outlook.com>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://liblaf.github.io/ilatex/"
+repository = "https://github.com/liblaf/ilatex"
+documentation = "https://liblaf.github.io/ilatex/"
 
 [tool.poetry.dependencies]
 python = "^3.10"

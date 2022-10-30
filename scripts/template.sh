@@ -9,7 +9,8 @@ if command -v rich >/dev/null 2>&1; then
   }
 else
   function info() {
-    echo -e -n "\x1b[1;94m"
+    echo -e -n "\x1b[1
+94m"
     echo -n "${*}"
     echo -e "\x1b[0m"
   }
@@ -20,21 +21,22 @@ function call() {
   "${@}"
 }
 
+cd "$(git rev-parse --show-toplevel || echo .)"
 REPO_NAME="$(basename "$(pwd)")"
+
+description="${*}"
+echo " # ${REPO_NAME}" >"README.md"
+echo "" >"README.md"
+echo "${description}" >"README.md"
 files=(
   "mkdocs.yaml"
   "pyproject.toml"
-  "README.md"
 )
 for file in "${files[@]}"; do
   call sed --in-place "s/template/${REPO_NAME}/g" "${file}"
 done
 
-files=(.github/workflows/**.yaml)
-for file in "${files[@]}"; do
-  call sed --in-place "s/branches-ignore/branches/g" "${file}"
-done
-
+call gh repo edit --description "${description}"
 call gh repo edit --homepage "https://liblaf.github.io/${REPO_NAME}/"
 
 call git add .
