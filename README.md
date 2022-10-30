@@ -6,20 +6,13 @@ Simple LaTeX templates
 
 ### Article
 
-- [default](https://liblaf.github.io/ilatex/demo/article.pdf)
-- [twocolumn](https://liblaf.github.io/ilatex/demo/article-twocolumn.pdf)
-- [chinese](https://liblaf.github.io/ilatex/demo/article-zh.pdf)
+- [default](https://liblaf.github.io/ilatex/demo/article.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/article.tex))
+- [twocolumn](https://liblaf.github.io/ilatex/demo/article-twocolumn.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/twocolumn/article-twocolumn.tex))
+- [chinese](https://liblaf.github.io/ilatex/demo/article-zh.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/zh/article-zh.tex))
 
 ### Course Work
 
-- [default](https://liblaf.github.io/ilatex/demo/work.pdf)
-
-| Filename               | Description               |
-| ---------------------- | ------------------------- |
-| [iwork.cls](iwork.cls) | coursework template       |
-| [icode.sty](icode.sty) | code highlight package    |
-| [imath.sty](imath.sty) | math package              |
-| [ipkg.sty](ipkg.sty)   | useful package collection |
+- [default](https://liblaf.github.io/ilatex/demo/work.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/work.tex))
 
 ## Usage
 
@@ -29,15 +22,11 @@ Simply copy the `*.cls` and / or `*.sty` files to the same folder of the `*.tex`
 
 ### Install to `TEXMFLOCAL`
 
-Use [install.sh](install.sh) (Bash script) or [install.ps1](install.ps1) (PowerShell script) to install `ilatex` to `TEXMFLOCAL` (`sudo` permission may be needed). After that, you won't need to copy `*.cls` and `*.sty` files to your work folder.
+Use [install.sh](install.sh) to install `ilatex` to `TEXMFLOCAL` (`sudo` permission may be needed). After that, you won't need to copy `*.cls` and `*.sty` files to your work folder.
 
 ## Manual
 
 Since the templates are mostly used by myself only, I'm too lazy to write a manual. It's not hard to understand the source code of `ilatex`. Just read them, and you will understand what those commands are doing.
-
-## Example
-
-Visit [liblaf/thu-course (github.com)](https://github.com/liblaf/thu-course) (my coursework collection) to see some examples.
 
 ## LaTeX Tutorial
 
