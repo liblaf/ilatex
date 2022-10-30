@@ -48,6 +48,8 @@ jobs:
       - run: git pull
       - name: Publish Package
         uses: ./.github/actions/publish
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
 
   deploy:
     needs: cz
