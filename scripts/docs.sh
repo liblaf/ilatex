@@ -20,13 +20,24 @@ function call() {
   "${@}"
 }
 
-REPO_HOME="$(realpath --canonicalize-missing "${0}/../..")"
+function prepare() {
+  if [[ ! -f "docs/index.md" ]]; then
+    call cp "README.md" "docs/index.md"
+  fi
+}
 
-TEXMFHOME="$(kpsewhich --var-value TEXMFHOME)"
-info "TEXMFHOME = ${TEXMFHOME}"
-mkdir --parent "${TEXMFHOME}/tex/latex"
-srcs=(${REPO_HOME}/src/*)
-for src in "${srcs[@]}"; do
-  call cp "${src}" "${TEXMFHOME}/tex/latex"
-done
-call texhash
+function build() {
+  call poetry run mkdocs build
+}
+
+function deploy() {
+  call poetry run mkdocs gh-deploy
+}
+
+cmd="${1}"
+shift 1
+case "${cmd}" in
+*)
+  "${cmd}" "${@}"
+  ;;
+esac

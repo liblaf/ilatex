@@ -9,7 +9,7 @@ tag_format = "$version"
 version_files = ["pyproject.toml:version"]
 
 [tool.poetry]
-name = "template"
+name = "ilatex"
 version = "0.3.1"
 description = ""
 authors = ["Qin Li <liblaf@outlook.com>"]

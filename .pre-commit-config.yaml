@@ -2,7 +2,7 @@ ci:
   skip:
     - latexindent
     - poetry-lock
-
+exclude: "^(.cz.yaml)|(poetry.lock)|(requirements.txt)$"
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
     rev: "v2.37.0"
@@ -21,7 +21,8 @@ repos:
     rev: "v2.4.0"
     hooks:
       - id: pretty-format-toml
-        exclude: poetry.lock
+        args:
+          - "--autofix"
   - repo: https://github.com/pre-commit/mirrors-clang-format
     rev: "v14.0.6"
     hooks:
@@ -30,7 +31,6 @@ repos:
     rev: "v3.0.0-alpha.4"
     hooks:
       - id: prettier
-        exclude: .cz.yaml
         stages:
           - commit
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -44,7 +44,6 @@ repos:
       - id: check-yaml
       - id: destroyed-symlinks
       - id: end-of-file-fixer
-        exclude: requirements.txt
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/psf/black
@@ -58,3 +57,9 @@ repos:
       - id: poetry-check
       - id: poetry-lock
       - id: poetry-export
+        files: "^pyproject.toml$"
+        args:
+          - "--output"
+          - "requirements.txt"
+          - "--without-hashes"
+          - "--without-urls"

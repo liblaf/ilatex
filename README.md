@@ -2,6 +2,18 @@
 
 Simple LaTeX templates
 
+## Demos
+
+### Article
+
+- [default](https://liblaf.github.io/ilatex/demo/article.pdf)
+- [twocolumn](https://liblaf.github.io/ilatex/demo/article-twocolumn.pdf)
+- [chinese](https://liblaf.github.io/ilatex/demo/article-zh.pdf)
+
+### Course Work
+
+- [default](https://liblaf.github.io/ilatex/demo/work.pdf)
+
 | Filename               | Description               |
 | ---------------------- | ------------------------- |
 | [iwork.cls](iwork.cls) | coursework template       |
