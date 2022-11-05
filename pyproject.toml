@@ -4,13 +4,13 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.3.1"
+version = "0.3.2"
 tag_format = "$version"
 version_files = ["pyproject.toml:version"]
 
 [tool.poetry]
 name = "ilatex"
-version = "0.3.1"
+version = "0.3.2"
 description = "Simple LaTeX Templates"
 authors = ["Qin Li <liblaf@outlook.com>"]
 license = "MIT"

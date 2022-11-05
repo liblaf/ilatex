@@ -1,3 +1,9 @@
+## 0.3.2 (2022-11-05)
+
+### Fix
+
+- **iwork**: reset prob counter in new section
+
 ## 0.3.1 (2022-10-29)
 
 ### Fix
