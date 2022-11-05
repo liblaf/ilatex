@@ -20,7 +20,7 @@
   \fancyhead[C]{}
 }
 
-\newcounter{prob}
+\newcounter{prob}[section]
 \newtcolorbox[
   auto counter,
   use counter = prob,
