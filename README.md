@@ -6,13 +6,13 @@ Simple LaTeX Templates
 
 ### Article
 
-- [default](https://liblaf.github.io/ilatex/demo/article.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/article.tex))
-- [twocolumn](https://liblaf.github.io/ilatex/demo/article-twocolumn.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/twocolumn/article-twocolumn.tex))
-- [chinese](https://liblaf.github.io/ilatex/demo/article-zh.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/zh/article-zh.tex))
+- [default](./demo/article.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/article.tex))
+- [twocolumn](./demo/article-twocolumn.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/twocolumn/article-twocolumn.tex))
+- [chinese](./demo/article-zh.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/zh/article-zh.tex))
 
 ### Course Work
 
-- [default](https://liblaf.github.io/ilatex/demo/work.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/work.tex))
+- [default](./demo/work.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/work.tex))
 
 ## Usage
 
