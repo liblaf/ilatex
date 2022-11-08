@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if command -v rich >/dev/null 2>&1; then
+if command -v rich > /dev/null 2>&1; then
   function info() {
     rich --print "[bold bright_blue]${*}"
   }
@@ -21,12 +21,7 @@ function call() {
 }
 
 REPO_HOME="$(realpath --canonicalize-missing "${0}/../..")"
-
-TEXMFHOME="$(kpsewhich --var-value TEXMFHOME)"
-info "TEXMFHOME = ${TEXMFHOME}"
-mkdir --parent "${TEXMFHOME}/tex/latex"
-srcs=(${REPO_HOME}/src/*)
-for src in "${srcs[@]}"; do
-  call cp "${src}" "${TEXMFHOME}/tex/latex"
-done
-call texhash
+call cd "${REPO_HOME}"
+call poetry run build
+mkdir --parents "${HOME}/.local/bin"
+call cp "${REPO_HOME}/dist/$(basename "${REPO_HOME}")" "${HOME}/.local/bin"

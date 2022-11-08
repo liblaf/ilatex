@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if command -v rich >/dev/null 2>&1; then
+if command -v rich > /dev/null 2>&1; then
   function info() {
     rich --print "[bold bright_blue]${*}"
   }
@@ -37,7 +37,7 @@ function deploy() {
 cmd="${1}"
 shift 1
 case "${cmd}" in
-*)
-  "${cmd}" "${@}"
-  ;;
+  *)
+    "${cmd}" "${@}"
+    ;;
 esac
