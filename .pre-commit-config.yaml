@@ -1,22 +1,19 @@
 ci:
   skip:
-    - latexindent
+    - latexindent-system
     - poetry-lock
+    - shfmt-system
 exclude: "^(.cz.yaml)|(poetry.lock)|(requirements.txt)$"
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
     rev: "v2.37.0"
     hooks:
       - id: commitizen
-  - repo: https://github.com/cmhughes/latexindent.pl
-    rev: "V3.18"
+  - repo: https://github.com/liblaf/pre-commit-hooks
+    rev: "0.2.0"
     hooks:
-      - id: latexindent
-        args:
-          - "--overwriteIfDifferent"
-          - "--silent"
-          - "--local"
-          - "--yaml=defaultIndent: '  '"
+      - id: latexindent-system
+      - id: shfmt-system
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: "v2.4.0"
     hooks:
