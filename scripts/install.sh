@@ -21,7 +21,12 @@ function call() {
 }
 
 REPO_HOME="$(realpath --canonicalize-missing "${0}/../..")"
-call cd "${REPO_HOME}"
-call poetry run build
-mkdir --parents "${HOME}/.local/bin"
-call cp "${REPO_HOME}/dist/$(basename "${REPO_HOME}")" "${HOME}/.local/bin"
+
+TEXMFHOME="$(kpsewhich --var-value TEXMFHOME)"
+info "TEXMFHOME = ${TEXMFHOME}"
+mkdir --parent "${TEXMFHOME}/tex/latex"
+srcs=(${REPO_HOME}/src/*)
+for src in "${srcs[@]}"; do
+  call cp "${src}" "${TEXMFHOME}/tex/latex"
+done
+call texhash
