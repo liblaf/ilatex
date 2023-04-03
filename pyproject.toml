@@ -1,23 +1,23 @@
 [build-system]
-requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.3.3"
 tag_format = "$version"
+version = "0.3.3"
 version_files = ["pyproject.toml:version"]
 
 [tool.poetry]
-name = "ilatex"
-version = "0.3.3"
-description = "Simple LaTeX Templates"
 authors = ["Qin Li <liblaf@outlook.com>"]
-license = "MIT"
-readme = "README.md"
-homepage = "https://liblaf.github.io/ilatex/"
-repository = "https://github.com/liblaf/ilatex"
+description = "Simple LaTeX Templates"
 documentation = "https://liblaf.github.io/ilatex/"
+homepage = "https://liblaf.github.io/ilatex/"
+license = "MIT"
+name = "ilatex"
+readme = "README.md"
+repository = "https://github.com/liblaf/ilatex"
+version = "0.3.3"
 
 [tool.poetry.dependencies]
 python = "^3.10"
