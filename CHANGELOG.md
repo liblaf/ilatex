@@ -4,6 +4,13 @@
 
 - **iarticle**: add extra space
 
+## [0.3.4](https://github.com/liblaf/ilatex/compare/0.3.3...v0.3.4) (2023-04-11)
+
+
+### Bug Fixes
+
+* update colors ([b81ec1a](https://github.com/liblaf/ilatex/commit/b81ec1a923477cd225be8d45cf01ec2ba2162d19))
+
 ## 0.3.2 (2022-11-05)
 
 ### Fix
