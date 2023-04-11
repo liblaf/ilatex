@@ -26,8 +26,8 @@
   use counter = prob,
 ]{prob}[1][]{
   title     = {Problem \thetcbcounter. #1},
-  colframe  = blue!75!white,
-  colback   = blue!5!white,
+  colframe  = blue!80!white,
+  colback   = blue!10!white,
   fonttitle = \bfseries,
   breakable,
   enhanced,

@@ -29,7 +29,7 @@ docs-serve: docs
 install: $(TARGET_LIST)
 	texhash
 
-pretty: $(SRC_LIST)
+pretty: $(DEMO_SRC_LIST) $(SRC_LIST)
 	$(foreach src, $^, latexindent --overwrite --local --cruft=$(TMP_DIR) --modifylinebreaks --GCString $(src);)
 
 $(DOCS_DIR)/demo/%.pdf: $(DEMO_DIR)/%.tex install
