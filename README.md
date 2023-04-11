@@ -6,13 +6,13 @@ Simple LaTeX Templates
 
 ### Article
 
-- [default](./demo/article.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/article.tex))
-- [twocolumn](./demo/article-twocolumn.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/twocolumn/article-twocolumn.tex))
-- [chinese](./demo/article-zh.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/zh/article-zh.tex))
+- [default](./demo/article/default/default.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/default.tex))
+- [two-column](./demo/article/two-column/two-column.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/two-column/two-column.tex))
+- [chinese](./demo/article/chinese/chinese.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/chinese/chinese.tex))
 
 ### Course Work
 
-- [default](./demo/work.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/work.tex))
+- [default](./demo/work/default/default.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/default.tex))
 
 ## Usage
 
@@ -22,7 +22,9 @@ Simply copy the `*.cls` and / or `*.sty` files to the same folder of the `*.tex`
 
 ### Install to `TEXMFHOME`
 
-Use [scripts/install.sh](https://github.com/liblaf/ilatex/blob/main/scripts/install.sh) to install `ilatex` to `TEXMFHOME` ( `TEXMFLOCAL` is OK ). After that, you won't need to copy `*.cls` and `*.sty` to your work folder.
+```shell
+make install
+```
 
 ## Manual
 
@@ -41,13 +43,19 @@ Visit [Overleaf, Online LaTeX Editor](https://www.overleaf.com) for more detail.
 
 ### Local Setup
 
-#### Homebrew ( recommended )
+#### Arch Linux
+
+```shell
+yay --sync texlive-most texlive-lang texlive-latexindent-meta
+```
+
+#### Homebrew
 
 ```bash
 brew install texlive
 ```
 
-#### APT ( stable )
+#### APT (not up-to-date)
 
 ```bash
 sudo apt install texlive-full
@@ -99,7 +107,7 @@ Read package documentation / manual for more detailed instructions.
 
 ## Useful Tools
 
-- [liblaf/texdoc-cli: CLI for texdoc.org (github.com)](https://github.com/liblaf/texdoc-cli)
+- [texdoc online documentation](https://texdoc.org)
 - [Overleaf, Online LaTeX Editor](https://www.overleaf.com)
 - [Detexify LaTeX handwritten symbol recognition (kirelabs.org)](http://detexify.kirelabs.org/classify.html)
 - [Shapecatcher: Draw the Unicode character you want!](http://shapecatcher.com/)
@@ -108,5 +116,5 @@ Read package documentation / manual for more detailed instructions.
 
 ## Similar Projects
 
-- [GJCav/latex-template: lalalalatex (github.com)](https://github.com/GJCav/latex-template)
-- [singlet-Carbene/WYC-Template: A template of assignment provided for students of Weiyang College, Tsinghua Univ. (github.com)](https://github.com/singlet-Carbene/WYC-Template)
+- [GJCav/latex-template: lalalalatex](https://github.com/GJCav/latex-template)
+- [singlet-Carbene/WYC-Template: A template of assignment provided for students of Weiyang College, Tsinghua Univ.](https://github.com/singlet-Carbene/WYC-Template)

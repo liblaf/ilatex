@@ -16,6 +16,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{caption}
 \RequirePackage{enumitem}
+\RequirePackage{esint}
 \RequirePackage{etoolbox}
 \RequirePackage{fancyhdr}
 \RequirePackage{float}
@@ -56,9 +57,6 @@
 }
 \linespread{1.3}
 \setlength{\columnsep}{10mm}
-\settasks{
-  label = \arabic*.,
-}
 \renewcommand{\tabularxcolumn}[1]{>{\centering\arraybackslash}m{#1}}
 \tcbuselibrary{breakable}
 \tcbuselibrary{listings}
@@ -109,12 +107,10 @@
   \begin{center}
     { \LARGE \textbf{\@title} }
     \par \vspace{0.5em}
-    {
-      \small
-      \begin{tabular}[t]{c}
-        \csuse{@author}
-      \end{tabular}
-    }
+    \small
+    \begin{tabular}[t]{c}
+      \csuse{@author}
+    \end{tabular}
   \end{center}
 }
 

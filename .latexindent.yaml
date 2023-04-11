@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://github.com/cmhughes/latexindent.pl/raw/main/documentation/latexindent-yaml-schema.json
+
+indentPreamble: 1
+
+defaultIndent: "  "
+
+removeTrailingWhitespace:
+  beforeProcessing: 1
+  afterProcessing: 1
+
+lookForAlignDelims:
+  split: 1
+  tabular:
+    multiColumnGrouping: 1
+
+indentAfterItems:
+  tasks: 1
+
+itemNames:
+  task: 1
+
+modifyLineBreaks:
+  preserveBlankLines: 0
+  condenseMultipleBlankLinesInto: 1
+  textWrapOptions:
+    columns: 10000
+    comments:
+      wrap: 1
+  environments:
+    BeginStartsOnOwnLine: 1
+    EndFinishesWithLineBreak: 1
+  optionalArguments:
+    LSqBStartsOnOwnLine: -1
+  mandatoryArguments:
+    LCuBStartsOnOwnLine: -1
+  commands:
+    CommandNameFinishesWithLineBreak: -1
+  namedGroupingBracesBrackets:
+    NameFinishesWithLineBreak: -1
+  items:
+    ItemStartsOnOwnLine: 1
