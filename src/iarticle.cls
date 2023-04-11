@@ -58,8 +58,35 @@
 \hypersetup{
   colorlinks = true,
   % https://tex.stackexchange.com/a/525984
+  linkcolor       = BrickRed,
+  citecolor       = Green,
+  filecolor       = Mulberry,
+  urlcolor        = NavyBlue,
+  menucolor       = BrickRed,
+  runcolor        = Mulberry,
+  linkbordercolor = BrickRed,
+  citebordercolor = Green,
+  filebordercolor = Mulberry,
+  urlbordercolor  = NavyBlue,
+  menubordercolor = BrickRed,
+  runbordercolor  = Mulberry,
+}
+\linespread{1.3}
+\setlength{\columnsep}{10mm}
+\renewcommand{\tabularxcolumn}[1]{>{\centering\arraybackslash}m{#1}}
 
-  linkcolor = BrickRed, citecolor = Green, filecolor = Mulberry, urlcolor = NavyBlue, menucolor = BrickRed, runcolor = Mulberry, linkbordercolor = BrickRed, citebordercolor = Green, filebordercolor = Mulberry, urlbordercolor = NavyBlue, menubordercolor = BrickRed, runbordercolor = Mulberry, } \linespread{1.3} \setlength{\columnsep}{10mm} \renewcommand{\tabularxcolumn}[1]{>{\centering\arraybackslash}m{#1}} \tcbuselibrary{breakable} \tcbuselibrary{listings} \tcbuselibrary{skins} \tcbuselibrary{theorems} \tcbuselibrary{xparse} \tcbset{ breakable, colback = blue!10!white, colframe = blue!80!white, enhanced, fonttitle = \bfseries, }
+\tcbuselibrary{breakable}
+\tcbuselibrary{listings}
+\tcbuselibrary{skins}
+\tcbuselibrary{theorems}
+\tcbuselibrary{xparse}
+\tcbset{
+  breakable,
+  colback  = blue!10!white,
+  colframe = blue!80!white,
+  enhanced,
+  fonttitle = \bfseries,
+}
 
 \DeclareDocumentCommand{\class}{m}{\csdef{@class}{#1}}
 \DeclareDocumentCommand{\course}{m}{\csdef{@course}{#1}}
