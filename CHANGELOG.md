@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.4](https://github.com/liblaf/ilatex/compare/0.3.3...v0.3.4) (2023-04-11)
+
+
+### Bug Fixes
+
+* fix syntax error ([8899dc0](https://github.com/liblaf/ilatex/commit/8899dc0a3d91764fdb13edcb32f21c3f3e0ad1e5))
+* update colors ([b81ec1a](https://github.com/liblaf/ilatex/commit/b81ec1a923477cd225be8d45cf01ec2ba2162d19))
+
 ## 0.3.3 (2022-12-13)
 
 ### Fix
