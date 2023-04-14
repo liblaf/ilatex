@@ -26,6 +26,6 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
       - name: Install Dependencies
-        run: pip install --requirement=requirements.txt
+        run: make pip
       - name: Deploy Documentation to GitHub Pages
         run: make docs-gh-deploy

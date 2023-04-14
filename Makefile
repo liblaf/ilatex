@@ -1,10 +1,15 @@
-DEMO_DIR  := $(CURDIR)/demo
-DOCS_DIR  := $(CURDIR)/docs
-SRC_DIR   := $(CURDIR)/src
-TEXMFHOME != kpsewhich --var-value TEXMFHOME
-TMP_DIR   := /tmp
+CONFIG_DIR := $(CURDIR)/config
+DEMO_DIR   := $(CURDIR)/demo
+DOCS_DIR   := $(CURDIR)/docs
+SCRIPT_DIR := $(CURDIR)/script
+SRC_DIR    := $(CURDIR)/src
+TEXMFHOME  != kpsewhich --var-value TEXMFHOME
 
-DEMO_SRC_LIST != find $(DEMO_DIR) -name '*.tex'
+DEMO_SRC_LIST :=
+DEMO_SRC_LIST += $(DEMO_DIR)/article/chinese/chinese.tex
+DEMO_SRC_LIST += $(DEMO_DIR)/article/default/default.tex
+DEMO_SRC_LIST += $(DEMO_DIR)/article/two-column/two-column.tex
+DEMO_SRC_LIST += $(DEMO_DIR)/work/default/default.tex
 SRC_LIST      := $(wildcard $(SRC_DIR)/*)
 
 DEMO_PDF_LIST := $(patsubst $(DEMO_DIR)/%.tex, $(DOCS_DIR)/demo/%.pdf, $(DEMO_SRC_LIST))
@@ -31,9 +36,21 @@ install: $(TARGET_LIST)
 
 pretty: $(DEMO_SRC_LIST) $(SRC_LIST)
 	$(foreach src, $^, latexindent --overwrite --local --cruft=$(TMP_DIR) --modifylinebreaks --GCString $(src);)
+	$(MAKE) --directory=$(SCRIPT_DIR) pretty
+
+package-to-subsection: $(SCRIPT_DIR)/package-to-subsection.py $(CONFIG_DIR)/packages.yaml | $(DEMO_DIR)/article/default/package
+	python $< --config $(CONFIG_DIR)/packages.yaml --package-dir $|
+
+pip: $(CURDIR)/requirements.txt $(SCRIPT_DIR)/requirements.txt
+	$(foreach req, $^, pip install --requirement $(req);)
+
+$(DEMO_DIR)/article/default/default.tex: package-to-subsection
+
+$(DEMO_DIR)/article/default/package:
+	mkdir --parents $@
 
 $(DOCS_DIR)/demo/%.pdf: $(DEMO_DIR)/%.tex install
-	latexmk $(LATEXMK_OPTIONS) -output-directory=$(dir $@) $<
+	cd $(dir $<) && latexmk $(LATEXMK_OPTIONS) -output-directory=$(dir $@) $<
 
 $(DOCS_DIR)/index.md: $(CURDIR)/README.md
 	install -D --mode=u=rw,go=r --no-target-directory $< $@
