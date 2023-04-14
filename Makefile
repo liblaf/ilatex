@@ -41,7 +41,7 @@ pretty: $(DEMO_SRC_LIST) $(SRC_LIST)
 package-to-subsection: $(SCRIPT_DIR)/package-to-subsection.py $(CONFIG_DIR)/packages.yaml | $(DEMO_DIR)/article/default/package
 	python $< --config $(CONFIG_DIR)/packages.yaml --package-dir $|
 
-pip: $(CURDIR)/requirements.txt $(SCRIPT_DIR)/requirements.txt
+pip: $(CURDIR)/requirements.txt $(DOCS_DIR)/requirements.txt $(SCRIPT_DIR)/requirements.txt
 	$(foreach req, $^, pip install --requirement $(req);)
 
 $(DEMO_DIR)/article/default/default.tex: package-to-subsection
