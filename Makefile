@@ -3,7 +3,8 @@ DEMO_DIR   := $(CURDIR)/demo
 DOCS_DIR   := $(CURDIR)/docs
 SCRIPT_DIR := $(CURDIR)/script
 SRC_DIR    := $(CURDIR)/src
-TEXMFHOME  != kpsewhich --var-value TEXMFHOME
+TEXMFHOME  != kpsewhich -var-value=TEXMFHOME
+TMP_DIR    := /tmp
 
 DEMO_SRC_LIST :=
 DEMO_SRC_LIST += $(DEMO_DIR)/article/chinese/chinese.tex
@@ -22,6 +23,7 @@ all: docs install
 clean:
 	$(RM) --recursive $(DOCS_DIR)/demo
 	$(RM) $(DOCS_DIR)/index.md
+	git clean -d --force -X
 
 docs: $(DOCS_DIR)/index.md $(DEMO_PDF_LIST)
 
@@ -44,13 +46,16 @@ package-to-subsection: $(SCRIPT_DIR)/package-to-subsection.py $(CONFIG_DIR)/pack
 pip: $(CURDIR)/requirements.txt $(DOCS_DIR)/requirements.txt $(SCRIPT_DIR)/requirements.txt
 	$(foreach req, $^, pip install --requirement $(req);)
 
+$(DEMO_DIR)/%.pdf: $(DEMO_DIR)/%.tex install
+	cd $(dir $<) && latexmk $(LATEXMK_OPTIONS) $<
+
 $(DEMO_DIR)/article/default/default.tex: package-to-subsection
 
 $(DEMO_DIR)/article/default/package:
 	mkdir --parents $@
 
-$(DOCS_DIR)/demo/%.pdf: $(DEMO_DIR)/%.tex install
-	cd $(dir $<) && latexmk $(LATEXMK_OPTIONS) -output-directory=$(dir $@) $<
+$(DOCS_DIR)/demo/%.pdf: $(DEMO_DIR)/%.pdf
+	install -D --mode=u=rw,go=r --no-target-directory $< $@
 
 $(DOCS_DIR)/index.md: $(CURDIR)/README.md
 	install -D --mode=u=rw,go=r --no-target-directory $< $@
