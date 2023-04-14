@@ -22,10 +22,9 @@ all: docs install
 
 clean:
 	$(RM) --recursive $(DOCS_DIR)/demo
-	$(RM) $(DOCS_DIR)/index.md
 	git clean -d --force -X
 
-docs: $(DOCS_DIR)/index.md $(DEMO_PDF_LIST)
+docs: $(DEMO_PDF_LIST)
 
 docs-gh-deploy: docs
 	mkdocs gh-deploy --force --no-history
@@ -55,9 +54,6 @@ $(DEMO_DIR)/article/default/package:
 	mkdir --parents $@
 
 $(DOCS_DIR)/demo/%.pdf: $(DEMO_DIR)/%.pdf
-	install -D --mode=u=rw,go=r --no-target-directory $< $@
-
-$(DOCS_DIR)/index.md: $(CURDIR)/README.md
 	install -D --mode=u=rw,go=r --no-target-directory $< $@
 
 $(TEXMFHOME)/tex/latex/%: $(SRC_DIR)/%

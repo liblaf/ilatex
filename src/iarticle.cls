@@ -5,7 +5,6 @@
 \newbool{chinese}
 \DeclareOption{chinese}{\booltrue{chinese}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-
 \ProcessOptions\relax
 
 \PassOptionsToPackage{dvipsnames}{xcolor}
@@ -47,6 +46,8 @@
 \RequirePackage{cleveref}
 
 \ifbool{chinese}{\RequirePackage{ctex}}{}
+
+\DeclareDocumentCommand{\ilatex}{}{\href{https://github.com/liblaf/ilatex}{i\LaTeX}}
 
 \floatplacement{figure}{H}
 \floatplacement{table}{H}
