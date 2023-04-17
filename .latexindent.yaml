@@ -9,6 +9,8 @@ removeTrailingWhitespace:
   afterProcessing: 1
 
 lookForAlignDelims:
+  gather: 1
+  gather*: 1
   split: 1
   tabular:
     multiColumnGrouping: 1
