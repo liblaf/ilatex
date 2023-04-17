@@ -1,5 +1,3 @@
-name: Documentation
-
 on:
   push:
     branches:
@@ -13,19 +11,15 @@ env:
 
 jobs:
   docs:
-    name: Documentation
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install TeX Live
-        run: sudo apt install texlive-full
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - run: |-
+          sudo apt update
+          sudo apt install texlive-full
+      - uses: actions/setup-python@v4
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
-      - name: Install Dependencies
-        run: make pip
-      - name: Deploy Documentation to GitHub Pages
-        run: make docs-gh-deploy
+      - run: make pip
+      - run: make docs-gh-deploy

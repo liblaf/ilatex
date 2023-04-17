@@ -1,5 +1,3 @@
-name: CI
-
 on:
   push:
     branches:
@@ -13,14 +11,12 @@ permissions:
 
 jobs:
   release:
-    name: Create GitHub Release
     runs-on: ubuntu-latest
     outputs:
       releases-created: ${{ steps.release.outputs.releases_created }}
       tag-name: ${{ steps.release.outputs.tag_name }}
     steps:
       - id: release
-        name: Create GitHub Release
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
