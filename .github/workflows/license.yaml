@@ -1,6 +1,8 @@
+name: Update LICENSE Year(s)
+
 on:
   schedule:
-    - cron: "0 3 1 1 *" # Jan  1 03:00:00 AM UTC
+    - cron: 0 3 1 1 * # Jan  1 03:00:00 AM UTC
 
 permissions:
   contents: write
