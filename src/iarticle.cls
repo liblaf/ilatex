@@ -132,12 +132,15 @@
   \end{center}
 }
 
+\sisetup{
+  uncertainty-mode = separate,
+}
 \ifbool{chinese}{
   \sisetup{
     list-final-separator = 和 \,,
     list-pair-separator  = 和 \,,
     per-mode             = symbol,
-    range-phrase         = -- \,,
+    range-phrase         = \,\text{--}\,,
   }
 }{}
 
