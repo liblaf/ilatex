@@ -16,6 +16,7 @@ lookForAlignDelims:
     multiColumnGrouping: 1
 
 indentAfterItems:
+  cvitems: 1
   tasks: 1
 
 itemNames:
