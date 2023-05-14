@@ -16,6 +16,8 @@ SRC_LIST      := $(wildcard $(SRC_DIR)/*)
 DEMO_PDF_LIST := $(patsubst $(DEMO_DIR)/%.tex, $(DOCS_DIR)/demo/%.pdf, $(DEMO_SRC_LIST))
 TARGET_LIST   := $(patsubst $(SRC_DIR)/%, $(TEXMFHOME)/tex/latex/%, $(SRC_LIST))
 
+INSTALL_OPTIONS := -D --mode="u=rw,go=r" --no-target-directory --verbose
+LATEXMK         := env TEXINPUTS="$(SRC_DIR):" latexmk
 LATEXMK_OPTIONS := -xelatex -file-line-error -interaction=nonstopmode -shell-escape
 
 all: docs install
@@ -45,8 +47,10 @@ package-to-subsection: $(SCRIPT_DIR)/package-to-subsection.py $(CONFIG_DIR)/pack
 pip: $(CURDIR)/requirements.txt $(DOCS_DIR)/requirements.txt $(SCRIPT_DIR)/requirements.txt
 	$(foreach req, $^, pip install --requirement $(req);)
 
-$(DEMO_DIR)/%.pdf: $(DEMO_DIR)/%.tex install
-	cd $(dir $<) && latexmk $(LATEXMK_OPTIONS) $<
+ALWAYS:
+
+$(DEMO_DIR)/%.pdf: $(DEMO_DIR)/%.tex ALWAYS
+	cd $(dir $<) && $(LATEXMK) $(LATEXMK_OPTIONS) $<
 
 $(DEMO_DIR)/article/default/default.tex: package-to-subsection
 
@@ -54,7 +58,7 @@ $(DEMO_DIR)/article/default/package:
 	mkdir --parents $@
 
 $(DOCS_DIR)/demo/%.pdf: $(DEMO_DIR)/%.pdf
-	install -D --mode=u=rw,go=r --no-target-directory $< $@
+	install $(INSTALL_OPTIONS) $< $@
 
 $(TEXMFHOME)/tex/latex/%: $(SRC_DIR)/%
-	install -D --mode=u=rw,go=r --no-target-directory $< $@
+	install $(INSTALL_OPTIONS) $< $@

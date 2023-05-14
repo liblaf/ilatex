@@ -15,13 +15,18 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: |-
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup TeX Live
+        run: |-
           sudo apt update
           sudo apt install texlive-full
-      - uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
-      - run: make pip
-      - run: make docs-gh-deploy
+      - name: Install Python Dependencies
+        run: make pip
+      - name: Deploy to GitHub Pages
+        run: make docs-gh-deploy
