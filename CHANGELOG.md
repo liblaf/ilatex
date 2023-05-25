@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/liblaf/ilatex/compare/v0.3.4...v0.4.0) (2023-05-25)
+
+
+### Features
+
+* code refactoring ([86d8d11](https://github.com/liblaf/ilatex/commit/86d8d11cb3c1d30b6d2b11c1e753fb9478d58850))
+
+
+### Bug Fixes
+
+* config siunitx ([a915f51](https://github.com/liblaf/ilatex/commit/a915f5136c4c43405ef7153c0b5d4df2bc88b250))
+* use `\csuse{}` instead of `\UseName{}` for compatibility ([53c3119](https://github.com/liblaf/ilatex/commit/53c3119607bc235bfb69caf2ee901a59961409de))
+
 ## [0.3.4](https://github.com/liblaf/ilatex/compare/0.3.3...v0.3.4) (2023-04-11)
 
 ### Bug Fixes
