@@ -1,0 +1,19 @@
+\ifi@sfdefault
+  % \PassOptionsToPackage{sfdefault}{noto}
+  \PassOptionsToPackage{sfdefault}{notomath}
+\fi
+
+\ifi@noto
+  % \RequirePackage{noto}
+  \RequirePackage{notomath}
+  \ifdefstring{\i@lang}{zh}{
+    \RequirePackage{ctex}
+    \setCJKmainfont{Noto Serif CJK SC}
+    \setCJKsansfont{Noto Sans CJK SC}
+    \setCJKmonofont{Noto Sans Mono CJK SC}
+  }{}
+\fi
+
+\ifi@sfdefault
+  \renewcommand{\familydefault}{\sfdefault}
+\fi

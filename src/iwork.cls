@@ -1,23 +1,34 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{iwork}[2022/10/20 Coursework Class]
+\ProvidesClass{iwork}
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{iarticle}}
-\ProcessOptions\relax
+\LoadClassWithOptions{iarticle}
 
-\LoadClass{iarticle}
-
-\fancyhead[L]{\small \thecourse}
-\fancyhead[C]{}
-\fancyhead[R]{\small \@date}
-\fancyfoot[L]{\small \thedepartment \\ \theemail}
-\fancyfoot[C]{}
-\fancyfoot[R]{Page \thepage{} of \,\pageref{LastPage}}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-
-\fancypagestyle{titlepage}{
-  \pagestyle{fancy}
-  \fancyhead[C]{}
+\define@cmdkey{image}{caption}[]{}
+\define@cmdkey{image}{label}[]{}
+\DeclareDocumentCommand{\image}{O{} O{} m}{
+  \presetkeys{image}{
+    caption,
+    label,
+  }{}
+  \setkeys{image}{#1}
+  \begin{figure}[H]
+    \centering
+    \ifstrempty{#2}{
+      \includegraphics[height = 0.3 \linewidth]{#3}
+    }{
+      \includegraphics[#2]{#3}
+    }
+    \ifdefempty{\cmdKV@image@caption}{
+      \caption{}
+    }{
+      \caption{\cmdKV@image@caption}
+    }
+    \ifdefempty{\cmdKV@image@label}{
+      \label{fig:#3}
+    }{
+      \label{fig:\cmdKV@image@label}
+    }
+  \end{figure}
 }
 
 \newcounter{prob}[section]
@@ -25,12 +36,9 @@
   auto counter,
   use counter = prob,
 ]{prob}[1][]{
-  title     = {Problem \thetcbcounter. #1},
-  colframe  = blue!80!white,
-  colback   = blue!10!white,
-  fonttitle = \bfseries,
-  breakable,
-  enhanced,
+  colback  = main!5,
+  colframe = main,
+  title    = {Problem \thetcbcounter. #1},
 }
 
 \NewTasksEnvironment[
@@ -39,12 +47,15 @@
 ]{choices}[\choice](4)
 
 \theoremstyle{remark}
-\newtheorem*{sol}{\textcolor{blue}{Solution}}
-\renewcommand{\proofname}{\textcolor{blue}{Proof}}
+\newtheorem*{sol}{\textcolor{second}{Solution}}
+\renewcommand{\proofname}{\textcolor{second}{Proof}}
 
 \author{
   \thename \quad \theid \\
   \theclass
 }
 
-\course{}
+\course{Coursework}
+\ifdefstring{\i@lang}{zh}{
+  \course{课程作业}
+}{}

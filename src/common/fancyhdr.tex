@@ -1,0 +1,20 @@
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\fancyhead[L]{\small \textsl{\leftmark}}
+\fancyhead[C]{}
+\fancyhead[R]{\small \textsl{\rightmark}}
+\fancyfoot[L]{\small \thedepartment \\ \theemail}
+\fancyfoot[C]{}
+\fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
+
+\fancypagestyle{titlepage}{
+  \fancyhead[L]{\small \thecourse}
+  \fancyhead[C]{}
+  \fancyhead[R]{\small \@date}
+}

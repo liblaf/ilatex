@@ -1,22 +1,18 @@
-name: CI
+name: CI/CD
 
 on:
   push:
     branches:
       - main
 
-# - [x] Settings > General > Pull Requests > Automatically delete head branches
-# - [x] Settings > Actions > General > Workflow permissions > Allow GitHub Actions to create and approve pull requests
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
-    outputs:
-      releases-created: ${{ steps.release.outputs.releases_created }}
-      tag-name: ${{ steps.release.outputs.tag_name }}
     steps:
       - id: release
         name: Release

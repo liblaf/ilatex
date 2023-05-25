@@ -1,64 +1,78 @@
-CONFIG_DIR := $(CURDIR)/config
-DEMO_DIR   := $(CURDIR)/demo
-DOCS_DIR   := $(CURDIR)/docs
-SCRIPT_DIR := $(CURDIR)/script
-SRC_DIR    := $(CURDIR)/src
-TEXMFHOME  != kpsewhich -var-value=TEXMFHOME
-TMP_DIR    := /tmp
+MAKEFLAGS += --jobs
 
-DEMO_SRC_LIST :=
-DEMO_SRC_LIST += $(DEMO_DIR)/article/chinese/chinese.tex
-DEMO_SRC_LIST += $(DEMO_DIR)/article/default/default.tex
-DEMO_SRC_LIST += $(DEMO_DIR)/article/two-column/two-column.tex
-DEMO_SRC_LIST += $(DEMO_DIR)/work/default/default.tex
-SRC_LIST      := $(wildcard $(SRC_DIR)/*)
+PROJECT := ilatex
 
-DEMO_PDF_LIST := $(patsubst $(DEMO_DIR)/%.tex, $(DOCS_DIR)/demo/%.pdf, $(DEMO_SRC_LIST))
-TARGET_LIST   := $(patsubst $(SRC_DIR)/%, $(TEXMFHOME)/tex/latex/%, $(SRC_LIST))
+CONFIG    := $(CURDIR)/config
+DEMO      := $(CURDIR)/demo
+DOCS      := $(CURDIR)/docs
+SCRIPTS   := $(CURDIR)/scripts
+SRC       := $(CURDIR)/src
+TEXMFHOME != kpsewhich -var-value=TEXMFHOME
+TMP       := /tmp
 
-INSTALL_OPTIONS := -D --mode="u=rw,go=r" --no-target-directory --verbose
-LATEXMK         := env TEXINPUTS="$(SRC_DIR):" latexmk
-LATEXMK_OPTIONS := -xelatex -file-line-error -interaction=nonstopmode -shell-escape
+DEMO_LIST          != find $(DEMO) "(" -name "*.tex" -or -name "*.sty" -or -name "*.cls" -or -name "*.bib" ")"
+DEMO_PDF_LIST      += $(DEMO)/article/chinese/chinese.pdf
+DEMO_PDF_LIST      += $(DEMO)/article/default/default.pdf
+DEMO_PDF_LIST      += $(DEMO)/article/manual/manual.pdf
+DEMO_PDF_LIST      += $(DEMO)/work/chinese/chinese.pdf
+DEMO_PDF_LIST      += $(DEMO)/work/default/default.pdf
+DOCS_LIST          += $(DEMO_PDF_LIST:$(DEMO)/%.pdf=$(DOCS)/demo/%.pdf)
+DOCS_LIST          += $(DOCS)/index.md
+LATEXINDENT_CONFIG := $(HOME)/.config/latexindent/latexindent.yaml
+SRC_LIST           != find $(SRC) "(" -name "*.tex" -or -name "*.sty" -or -name "*.cls" -or -name "*.bib" ")"
+TARGET_LIST        += $(HOME)/.indentconfig.yaml
+TARGET_LIST        += $(LATEXINDENT_CONFIG)
+TARGET_LIST        += $(SRC_LIST:$(SRC)/%=$(TEXMFHOME)/tex/latex/$(PROJECT)/%)
 
-all: docs install
+INSTALL_OPTIONS     := -D --mode="u=rw,go=r" --no-target-directory --verbose
+LATEXINDENT_OPTIONS := --overwriteIfDifferent --silent --cruft=$(TMP) --modifylinebreaks --GCString
+LATEXMK             := env TEXINPUTS=$(SRC): latexmk
+LATEXMK_OPTIONS     := -xelatex -file-line-error -interaction=nonstopmode -shell-escape
 
-clean:
-	$(RM) --recursive $(DOCS_DIR)/demo
-	git clean -d --force -X
+all:
 
-docs: $(DEMO_PDF_LIST)
+clean: $(DEMO_LIST:$(CURDIR)/%=clean-$(CURDIR)/%)
+	@ $(RM) --recursive --verbose $(DOCS)/demo
 
-docs-gh-deploy: docs
+docs-build: $(DOCS_LIST)
+	mkdocs build
+
+docs-gh-deploy: $(DOCS_LIST)
 	mkdocs gh-deploy --force --no-history
 
-docs-serve: docs
+docs-serve: $(DOCS_LIST)
 	mkdocs serve
 
 install: $(TARGET_LIST)
 	texhash
 
-pretty: $(DEMO_SRC_LIST) $(SRC_LIST)
-	$(foreach src, $^, latexindent --overwrite --local --cruft=$(TMP_DIR) --modifylinebreaks --GCString $(src);)
-	$(MAKE) --directory=$(SCRIPT_DIR) pretty
+pretty: $(CURDIR)/.gitignore $(DEMO_LIST:$(CURDIR)/%=latexindent-$(CURDIR)/%) $(SRC_LIST:$(CURDIR)/%=latexindent-$(CURDIR)/%)
+	prettier --write --ignore-path $< $(CURDIR)
 
-package-to-subsection: $(SCRIPT_DIR)/package-to-subsection.py $(CONFIG_DIR)/packages.yaml | $(DEMO_DIR)/article/default/package
-	python $< --config $(CONFIG_DIR)/packages.yaml --package-dir $|
-
-pip: $(CURDIR)/requirements.txt $(DOCS_DIR)/requirements.txt $(SCRIPT_DIR)/requirements.txt
-	$(foreach req, $^, pip install --requirement $(req);)
+pkg-to-subsection: $(SCRIPTS)/pkg-to-subsection.py $(CONFIG)/pkgs.yaml | $(DEMO)/article/manual/pkg
+	python $< --config $(CONFIG)/pkgs.yaml --pkg-dir $|
 
 ALWAYS:
 
-$(DEMO_DIR)/%.pdf: $(DEMO_DIR)/%.tex ALWAYS
-	cd $(dir $<) && $(LATEXMK) $(LATEXMK_OPTIONS) $<
+$(DEMO)/%.pdf: $(DEMO)/%.tex ALWAYS
+	cd $(@D) && $(LATEXMK) $(LATEXMK_OPTIONS) $<
 
-$(DEMO_DIR)/article/default/default.tex: package-to-subsection
+$(DOCS)/demo/%.pdf: $(DEMO)/%.pdf
+	@ install $(INSTALL_OPTIONS) $< $@
 
-$(DEMO_DIR)/article/default/package:
-	mkdir --parents $@
+$(LATEXINDENT_CONFIG): $(CURDIR)/.latexindent.yaml
+	@ install $(INSTALL_OPTIONS) $< $@
 
-$(DOCS_DIR)/demo/%.pdf: $(DEMO_DIR)/%.pdf
-	install $(INSTALL_OPTIONS) $< $@
+$(HOME)/.indentconfig.yaml: $(LATEXINDENT_CONFIG)
+	echo 'paths:' > $@
+	echo '  - $(LATEXINDENT_CONFIG)' >> $@
 
-$(TEXMFHOME)/tex/latex/%: $(SRC_DIR)/%
-	install $(INSTALL_OPTIONS) $< $@
+$(TEXMFHOME)/tex/latex/$(PROJECT)/%: $(SRC)/%
+	@ install $(INSTALL_OPTIONS) $< $@
+
+clean-$(CURDIR)/%: $(CURDIR)/%
+	@ $(RM) --recursive --verbose $(<D)/_minted-* $(<D)/*.bbl $(<D)/*.listing $(<D)/*.run.xml $(<D)/indent.log
+	cd $(<D) && $(LATEXMK) $(LATEXMK_OPTIONS) -C $<
+
+latexindent-$(CURDIR)/%: $(CURDIR)/%
+	latexindent $(LATEXINDENT_OPTIONS) $<

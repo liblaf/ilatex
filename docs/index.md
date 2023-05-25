@@ -6,13 +6,14 @@ Simple LaTeX Templates
 
 ### Article
 
-- [default](./demo/article/default/default.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/default.tex))
-- [two-column](./demo/article/two-column/two-column.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/two-column/two-column.tex))
 - [chinese](./demo/article/chinese/chinese.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/chinese/chinese.tex))
+- [default](./demo/article/default/default.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/default.tex))
+- [manual](./demo/article/manual/manual.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/manual/manual.tex))
 
 ### Course Work
 
 - [default](./demo/work/default/default.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/default.tex))
+- [chinese](./demo/work/chinese/chinese.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/chinese/chinese.tex))
 
 ## Installation
 
@@ -28,7 +29,7 @@ There are two ways to install ilatex:
 
 ## Manual
 
-See [default.pdf](./demo/article/default/default.pdf) and other [demos](#demos) for more details.
+See [manual](./demo/article/manual/manual.pdf) and other [demos](#demos) for more details.
 
 ## Resources
 

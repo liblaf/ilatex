@@ -1,0 +1,19 @@
+\RequirePackage{siunitx}
+\RequirePackage{etoolbox}
+
+\ExplSyntaxOn
+\msg_redirect_name:nnn{siunitx}{physics-pkg}{none}
+\ExplSyntaxOff
+
+\sisetup{
+  uncertainty-mode = separate,
+}
+
+\ifdefstring{\i@lang}{zh}{
+  \sisetup{
+    list-final-separator = \ifmmode \ \else \space \fi \text{和} \ifmmode \ \fi,
+    list-pair-separator  = \ifmmode \ \else \space \fi \text{和} \ifmmode \ \fi,
+    per-mode             = symbol,
+    range-phrase         = \ifmmode \ \else \space \fi \text{--} \ifmmode \ \fi,
+  }
+}{}

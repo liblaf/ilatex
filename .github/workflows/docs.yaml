@@ -13,6 +13,7 @@ env:
 
 jobs:
   docs:
+    name: Documentation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,7 +27,8 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
+          cache-dependency-path: docs/requirements.txt
       - name: Install Python Dependencies
-        run: make pip
+        run: pip install --requirement docs/requirements.txt
       - name: Deploy to GitHub Pages
-        run: make docs-gh-deploy
+        run: make --jobs docs-deploy-gh

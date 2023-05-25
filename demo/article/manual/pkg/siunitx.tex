@@ -1,0 +1,43 @@
+% !TeX root = ../manual.tex
+
+\subsection{\pkg{siunitx} - A comprehensive (SI) units package}
+
+\begin{table}
+  \centering
+  \caption{Numbers}
+  \begin{tabular}{| c | c |} \hline
+    \mintinline{latex}{\num{123}}             & \num{123}             \\ \hline
+    \mintinline{latex}{\numlist{10;30;50;70}} & \numlist{10;30;50;70} \\ \hline
+    \mintinline{latex}{\numproduct{10 x 30}}  & \numproduct{10 x 30}  \\ \hline
+    \mintinline{latex}{\numrange{10}{30}}     & \numrange{10}{30}     \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Angles}
+  \begin{tabular}{| c | c |} \hline
+    \mintinline{latex}{\ang{1;2;3}} & \ang{1;2;3} \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Units}
+  \begin{tabular}{| c | c |} \hline
+    \mintinline{latex}{\unit{kg.m/s^2}}                   & \unit{kg.m/s^2}                   \\ \hline
+    \mintinline{latex}{\SI{1.23}{J.mol^{-1}.K^{-1}}}      & \SI{1.23}{J.mol^{-1}.K^{-1}}      \\ \hline
+    \mintinline{latex}{\qtylist{10;30;45}{\metre}}        & \qtylist{10;30;45}{\metre}        \\ \hline
+    \mintinline{latex}{\qtyproduct{10 x 30 x 45}{\metre}} & \qtyproduct{10 x 30 x 45}{\metre} \\ \hline
+    \mintinline{latex}{\qtyrange{10}{30}{\metre}}         & \qtyrange{10}{30}{\metre}         \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{tcblisting}{title = Tabular material}
+  \begin{tabular}{c} \toprule
+    Some Values       \\ \midrule
+    \tablenum{12.34}  \\
+    \tablenum{975.31} \\
+    \tablenum{44.268} \\ \bottomrule
+  \end{tabular}
+\end{tcblisting}

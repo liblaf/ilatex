@@ -1,59 +1,18 @@
-\documentclass{iarticle}
-\usepackage{icode}
-\usepackage{import}
-\usepackage{lipsum}
+\documentclass[noto, sfdefault]{iarticle}
+\usepackage{blindtext}
 
-\DeclareDocumentCommand{\pkg}{m}{\href{https://texdoc.org/pkg/#1}{#1}}
-\tcbuselibrary{minted}
+\blindmathtrue
+\blindtoctrue
 
 \class{Class Name}
 \course{Course Name}
 \email{email@example.com}
 \id{id-xxxxxxxxxx}
 \name{Name}
-\title{\ilatex: Simple \LaTeX{} Template}
+\title{Article Title}
 
 \begin{document}
 
-\tableofcontents
-
-\section{Packages}
-
-\subimport{package}{amsmath.tex}
-\subimport{package}{amssymb.tex}
-\subimport{package}{amsthm.tex}
-\subimport{package}{array.tex}
-\subimport{package}{babel.tex}
-\subimport{package}{blindtext.tex}
-\subimport{package}{booktabs.tex}
-\subimport{package}{caption.tex}
-\subimport{package}{cleveref.tex}
-\subimport{package}{enumitem.tex}
-\subimport{package}{esint.tex}
-\subimport{package}{etoolbox.tex}
-\subimport{package}{fancyhdr.tex}
-\subimport{package}{float.tex}
-\subimport{package}{fontspec.tex}
-\subimport{package}{geometry.tex}
-\subimport{package}{graphicx.tex}
-\subimport{package}{hyperref.tex}
-\subimport{package}{import.tex}
-\subimport{package}{lastpage.tex}
-\subimport{package}{lipsum.tex}
-\subimport{package}{mathtools.tex}
-\subimport{package}{microtype.tex}
-\subimport{package}{multicol.tex}
-\subimport{package}{multirow.tex}
-\subimport{package}{mwe.tex}
-\subimport{package}{physics.tex}
-\subimport{package}{siunitx.tex}
-\subimport{package}{subcaption.tex}
-\subimport{package}{tabularx.tex}
-\subimport{package}{tasks.tex}
-\subimport{package}{tcolorbox.tex}
-\subimport{package}{ulem.tex}
-\subimport{package}{xcolor.tex}
-\subimport{package}{xkeyval.tex}
-\subimport{package}{xparse.tex}
+\Blinddocument
 
 \end{document}
