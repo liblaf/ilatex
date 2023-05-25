@@ -10,7 +10,7 @@ Simple LaTeX Templates
 - [default](./demo/article/default/default.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/default.tex))
 - [manual](./demo/article/manual/manual.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/article/manual/manual.tex))
 
-### Course Work
+### Coursework
 
 - [default](./demo/work/default/default.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/default.tex))
 - [chinese](./demo/work/chinese/chinese.pdf) ([source code](https://github.com/liblaf/ilatex/blob/main/demo/work/chinese/chinese.tex))

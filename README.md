@@ -1,6 +1,6 @@
 # ilatex
 
-Simple LaTeX Template
+Minimal LaTeX Templates
 
 ## Documentation
 
