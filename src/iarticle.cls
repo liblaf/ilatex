@@ -77,19 +77,19 @@
 \DeclareDocumentCommand{\id}{m}{\def\@id{#1}}
 \DeclareDocumentCommand{\name}{m}{\def\@name{#1}}
 
-\DeclareDocumentCommand{\theclass}{}{\UseName{@class}}
-\DeclareDocumentCommand{\thecourse}{}{\UseName{@course}}
-\DeclareDocumentCommand{\thedepartment}{}{\UseName{@department}}
-\DeclareDocumentCommand{\theemail}{}{\href{mailto:\UseName{@email}}{\nolinkurl{\UseName{@email}}}}
-\DeclareDocumentCommand{\theid}{}{\UseName{@id}}
-\DeclareDocumentCommand{\thename}{}{\UseName{@name}}
+\DeclareDocumentCommand{\theclass}{}{\csuse{@class}}
+\DeclareDocumentCommand{\thecourse}{}{\csuse{@course}}
+\DeclareDocumentCommand{\thedepartment}{}{\csuse{@department}}
+\DeclareDocumentCommand{\theemail}{}{\href{mailto:\csuse{@email}}{\nolinkurl{\csuse{@email}}}}
+\DeclareDocumentCommand{\theid}{}{\csuse{@id}}
+\DeclareDocumentCommand{\thename}{}{\csuse{@name}}
 
 \linespread{1.3}
 
 \DeclareDocumentCommand{\maketitle}{}{
   \thispagestyle{titlepage}
   \begin{center}
-    { \LARGE \textbf{\UseName{@title}} }
+    { \LARGE \textbf{\csuse{@title}} }
     \par \vspace{1em}
     \small
     \begin{tabular}[t]{c}

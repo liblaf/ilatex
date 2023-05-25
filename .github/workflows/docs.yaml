@@ -21,7 +21,7 @@ jobs:
       - name: Setup TeX Live
         run: |-
           sudo apt update
-          sudo apt install texlive-full
+          sudo apt install fonts-noto fonts-noto-cjk texlive-full
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
