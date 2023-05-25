@@ -31,4 +31,4 @@ jobs:
       - name: Install Python Dependencies
         run: pip install --requirement docs/requirements.txt
       - name: Deploy to GitHub Pages
-        run: make --jobs docs-deploy-gh
+        run: make --jobs docs-gh-deploy
