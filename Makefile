@@ -25,7 +25,7 @@ TARGET_LIST        += $(LATEXINDENT_CONFIG)
 TARGET_LIST        += $(SRC_LIST:$(SRC)/%=$(TEXMFHOME)/tex/latex/$(PROJECT)/%)
 
 INSTALL_OPTIONS     := -D --mode="u=rw,go=r" --no-target-directory --verbose
-LATEXINDENT_OPTIONS := --overwriteIfDifferent --silent --cruft=$(TMP) --modifylinebreaks --GCString
+LATEXINDENT_OPTIONS := --overwriteIfDifferent --silent --local --cruft=$(TMP) --modifylinebreaks --GCString
 LATEXMK             := env TEXINPUTS=$(SRC): latexmk
 LATEXMK_OPTIONS     := -xelatex -file-line-error -interaction=nonstopmode -shell-escape
 
