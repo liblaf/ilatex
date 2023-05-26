@@ -15,6 +15,9 @@
 \PassOptionsToPackage{inline}{enumitem}
 \PassOptionsToPackage{T1}{fontenc}
 
+\RequirePackage{silence}
+\input{common/silence.tex}
+
 \LoadClass{article}
 
 \RequirePackage{amsmath}
@@ -61,6 +64,7 @@
 \input{common/enumitem.tex}
 \input{common/fancyhdr.tex}
 \input{common/float.tex}
+\input{common/fontspec.tex}
 \input{common/hyperref.tex}
 \input{common/noto.tex}
 \input{common/siunitx.tex}

@@ -1,5 +1,10 @@
 \RequirePackage{etoolbox}
 
+\ExplSyntaxOn
+\msg_redirect_name:nnn{fontspec}{no-script}{none}
+\msg_redirect_name:nnn{xeCJK}{CJKfamily-redef}{none}
+\ExplSyntaxOff
+
 \ifdefstring{\i@lang}{zh}{
   \RequirePackage{ctex}
 }{}
