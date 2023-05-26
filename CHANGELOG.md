@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.1](https://github.com/liblaf/ilatex/compare/v0.4.0...v0.4.1) (2023-05-26)
+
+
+### Bug Fixes
+
+* add `.gitmodules` ([3f1ac75](https://github.com/liblaf/ilatex/commit/3f1ac753ed11d847d2349041708e2043d4ea72aa))
+* silence annoying warnings ([4d86727](https://github.com/liblaf/ilatex/commit/4d86727c555592320d0a7ff2da0d40a634d36814))
+
 ## [0.4.0](https://github.com/liblaf/ilatex/compare/v0.3.4...v0.4.0) (2023-05-25)
 
 ### Features
