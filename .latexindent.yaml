@@ -10,7 +10,10 @@ removeTrailingWhitespace:
 
 lookForAlignDelims:
   gather: 1
-  gather*: 1
+  gather*:
+    alignDoubleBackSlash: 0
+    alignFinalDoubleBackSlash: 1
+    delimiterRegEx: \\qc
   split: 1
   tabular:
     multiColumnGrouping: 1
