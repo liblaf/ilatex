@@ -72,6 +72,9 @@
 \input{common/tcolorbox.tex}
 \input{common/titlesec.tex}
 
+\DeclareDocumentCommand{\ymd}{m m m}{\year=#1 \month=#2 \day=#3}
+\DeclareDocumentCommand{\emph}{m}{\textbf{\textcolor{emph}{#1}}}
+
 \DeclareDocumentCommand{\ilatex}{}{i\LaTeX}
 
 \DeclareDocumentCommand{\class}{m}{\def\@class{#1}}
@@ -101,8 +104,6 @@
     \end{tabular}
   \end{center}
 }
-
-\AtBeginDocument{\maketitle}
 
 \author{
   \thename \quad \theid \\

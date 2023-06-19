@@ -5,6 +5,8 @@
 \msg_redirect_name:nnn{siunitx}{physics-pkg}{none}
 \ExplSyntaxOff
 
+\AtBeginDocument{\RenewCommandCopy{\qty}{\SI}}
+
 \sisetup{
   uncertainty-mode = separate,
 }

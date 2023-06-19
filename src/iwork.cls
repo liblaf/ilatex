@@ -36,8 +36,8 @@
   auto counter,
   use counter = prob,
 ]{prob}[1][]{
-  colback  = main!5,
-  colframe = main,
+  colback  = tcolorbox!5,
+  colframe = tcolorbox,
   title    = {Problem \thetcbcounter. #1},
 }
 
@@ -47,8 +47,8 @@
 ]{choices}[\choice](4)
 
 \theoremstyle{remark}
-\newtheorem*{sol}{\textcolor{second}{Solution}}
-\renewcommand{\proofname}{\textcolor{second}{Proof}}
+\newtheorem*{sol}{\textcolor{theorem}{Solution}}
+\renewcommand{\proofname}{\textcolor{theorem}{Proof}}
 
 \author{
   \thename \quad \theid \\
