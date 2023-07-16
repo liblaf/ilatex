@@ -14,6 +14,7 @@ DEMO_LIST          != find $(DEMO) "(" -name "*.tex" -or -name "*.sty" -or -name
 DEMO_PDF_LIST      += $(DEMO)/article/chinese/chinese.pdf
 DEMO_PDF_LIST      += $(DEMO)/article/default/default.pdf
 DEMO_PDF_LIST      += $(DEMO)/article/manual/manual.pdf
+DEMO_PDF_LIST      += $(DEMO)/beamer/default/default.pdf
 DEMO_PDF_LIST      += $(DEMO)/work/chinese/chinese.pdf
 DEMO_PDF_LIST      += $(DEMO)/work/default/default.pdf
 DOCS_LIST          += $(DEMO_PDF_LIST:$(DEMO)/%.pdf=$(DOCS)/demo/%.pdf)
@@ -34,23 +35,31 @@ all:
 clean: $(DEMO_LIST:$(CURDIR)/%=clean-$(CURDIR)/%)
 	@ $(RM) --recursive --verbose $(DOCS)/demo
 
-docs-build: $(DOCS_LIST)
+docs: $(DOCS_LIST)
+
+docs-build: docs
 	mkdocs build
 
-docs-gh-deploy: $(DOCS_LIST)
+docs-gh-deploy: docs
 	mkdocs gh-deploy --force --no-history
 
-docs-serve: $(DOCS_LIST)
+docs-serve: docs
 	mkdocs serve
 
 install: $(TARGET_LIST)
 	texhash
 
-pretty: $(CURDIR)/.gitignore $(DEMO_LIST:$(CURDIR)/%=latexindent-$(CURDIR)/%) $(SRC_LIST:$(CURDIR)/%=latexindent-$(CURDIR)/%)
-	prettier --write --ignore-path $< $(CURDIR)
+pretty: prettier latexindent
 
 pkg-to-subsection: $(SCRIPTS)/pkg-to-subsection.py $(CONFIG)/pkgs.yaml | $(DEMO)/article/manual/pkg
-	python $< --config $(CONFIG)/pkgs.yaml --pkg-dir $|
+	python $< --config=$(CONFIG)/pkgs.yaml --pkg-dir=$|
+
+setup: $(DOCS)/requirements.txt
+	pip install --requirement=$<
+
+#####################
+# Auxiliary Targets #
+#####################
 
 ALWAYS:
 
@@ -71,8 +80,19 @@ $(TEXMFHOME)/tex/latex/$(PROJECT)/%: $(SRC)/%
 	@ install $(INSTALL_OPTIONS) $< $@
 
 clean-$(CURDIR)/%: $(CURDIR)/%
-	@ $(RM) --recursive --verbose $(<D)/_minted-* $(<D)/*.bbl $(<D)/*.listing $(<D)/*.run.xml $(<D)/indent.log
+	@ $(RM) --recursive --verbose $(<D)/_minted-*
+	@ $(RM) --recursive --verbose $(<D)/*.bbl
+	@ $(RM) --recursive --verbose $(<D)/*.listing
+	@ $(RM) --recursive --verbose $(<D)/*.nav
+	@ $(RM) --recursive --verbose $(<D)/*.run.xml
+	@ $(RM) --recursive --verbose $(<D)/*.snm
+	@ $(RM) --recursive --verbose $(<D)/indent.log
 	cd $(<D) && $(LATEXMK) $(LATEXMK_OPTIONS) -C $<
+
+latexindent: $(DEMO_LIST:$(CURDIR)/%=latexindent-$(CURDIR)/%) $(SRC_LIST:$(CURDIR)/%=latexindent-$(CURDIR)/%)
 
 latexindent-$(CURDIR)/%: $(CURDIR)/%
 	latexindent $(LATEXINDENT_OPTIONS) $<
+
+prettier: $(CURDIR)/.gitignore
+	prettier --write --ignore-path=$< $(CURDIR)

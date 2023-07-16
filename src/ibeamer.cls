@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{iarticle}
+\ProvidesPackage{ibeamer}
 
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
@@ -12,13 +12,12 @@
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessKeyvalOptions{i}
 
-\PassOptionsToPackage{inline}{enumitem}
 \PassOptionsToPackage{T1}{fontenc}
 
 \RequirePackage{silence}
 \input{common/silence.tex}
 
-\LoadClass{article}
+\LoadClass{beamer}
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -27,14 +26,11 @@
 \RequirePackage{biblatex}
 \RequirePackage{booktabs}
 \RequirePackage{caption}
-\RequirePackage{enumitem}
 \RequirePackage{esint}
 \RequirePackage{etoolbox}
-\RequirePackage{fancyhdr}
 \RequirePackage{float}
 \RequirePackage{fontawesome5}
 \RequirePackage{fontenc}
-\RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
 \RequirePackage{import}
@@ -49,7 +45,6 @@
 \RequirePackage{tabularx}
 \RequirePackage{tasks}
 \RequirePackage{tcolorbox}
-\RequirePackage{titlesec}
 \RequirePackage{ulem}
 \RequirePackage{xcolor}
 \RequirePackage{xkeyval}
@@ -57,12 +52,9 @@
 
 \RequirePackage{cleveref}
 
-\input{common/geometry.tex}
 \input{common/xcolor.tex}
 
 \input{common/ctex.tex}
-\input{common/enumitem.tex}
-\input{common/fancyhdr.tex}
 \input{common/float.tex}
 \input{common/fontspec.tex}
 \input{common/hyperref.tex}
@@ -70,7 +62,37 @@
 \input{common/siunitx.tex}
 \input{common/tabularx.tex}
 \input{common/tcolorbox.tex}
-\input{common/titlesec.tex}
+
+\useinnertheme{rounded}
+\useinnertheme{circles}
+
+\setbeamercolor{palette primary}{fg = geekblue-1, bg = geekblue-6}
+\setbeamercolor{structure}{fg = geekblue-8, bg = geekblue-2}
+\setbeamercolor{alerted text}{fg = red-6}
+\setbeamercolor{block body alerted}{bg = red-2}
+\setbeamercolor{block body example}{bg = green-2}
+\setbeamercolor{block body}{bg = geekblue-2}
+\setbeamercolor{block title alerted}{fg = red-1, bg = red-6}
+\setbeamercolor{block title example}{fg = green-1, bg = green-6}
+\setbeamercolor{block title}{parent = palette primary}
+\setbeamercolor{footline}{parent = structure}
+\setbeamercolor{frametitle}{parent = structure}
+\setbeamercolor{titlelike}{parent = structure}
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}{footline}
+    \vspace{1pt}
+    \insertnavigation{\paperwidth}
+    \vspace{1pt}
+  \end{beamercolorbox}
+}
+
+\AtBeginSection{
+  \begin{frame}
+    \frametitle{Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
 
 \DeclareDocumentCommand{\ymd}{m m m}{\year=#1 \month=#2 \day=#3}
 \DeclareDocumentCommand{\emph}{m}{\textbf{\textcolor{emph}{#1}}}
