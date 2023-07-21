@@ -18,10 +18,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup TeX Live
+      - name: Install Fonts
         run: |-
-          sudo apt update
-          sudo apt install fonts-noto fonts-noto-cjk texlive-full
+          sudo apt --yes update
+          sudo apt --yes install fonts-noto fonts-noto-cjk
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -29,6 +29,10 @@ jobs:
           cache: pip
           cache-dependency-path: docs/requirements.txt
       - name: Install Python Dependencies
-        run: pip install --requirement docs/requirements.txt
+        run: pip install --requirement=docs/requirements.txt
+      - name: Setup Tex Live
+        uses: teatimeguest/setup-texlive-action@v2
+        with:
+          packages: scheme-full
       - name: Deploy to GitHub Pages
         run: make --jobs docs-gh-deploy
