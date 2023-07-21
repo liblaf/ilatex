@@ -82,6 +82,7 @@ $(TEXMFHOME)/tex/latex/$(PROJECT)/%: $(SRC)/%
 clean-$(CURDIR)/%: $(CURDIR)/%
 	@ $(RM) --recursive --verbose $(<D)/_minted-*
 	@ $(RM) --recursive --verbose $(<D)/*.bbl
+	@ $(RM) --recursive --verbose $(<D)/*.fls
 	@ $(RM) --recursive --verbose $(<D)/*.listing
 	@ $(RM) --recursive --verbose $(<D)/*.nav
 	@ $(RM) --recursive --verbose $(<D)/*.run.xml

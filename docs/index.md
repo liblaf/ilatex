@@ -1,6 +1,6 @@
 # ilatex
 
-Simple LaTeX Templates
+Minimal LaTeX Templates
 
 ## Demos
 
