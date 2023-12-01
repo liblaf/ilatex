@@ -10,13 +10,13 @@
 \tcbuselibrary{minted}
 
 \lstset{
-  numbers = left,
+	numbers = left,
 }
 
 \setminted{
-  autogobble,
-  linenos,
-  numbersep = 3mm,
+	autogobble,
+	linenos,
+	numbersep = 3mm,
 }
 
 % https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml
@@ -28,43 +28,43 @@
 \NewDocumentCommand{\codeinline}{m v}{\tcbox[colback = #1!10, colframe = #1, verbatim]{\mintinline{#1}{#2}}}
 
 \DeclareTCBListing[
-  list inside  = listing,
-  list type    = lstlisting,
-  use  counter = listing,
+	list inside  = listing,
+	list type    = lstlisting,
+	use  counter = listing,
 ]{demo}{O{} m m}{
-  colback    = tex!5,
-  colframe   = tex,
-  label      = demo:#3,
-  label type = listing,
-  left       = 5mm,
-  listing and text,
-  minted language = tex,
-  overlay = {
-      \begin{tcbclipinterior}
-        \fill[tex!20] (frame.south west) rectangle ([xshift = 5mm] frame.north west);
-      \end{tcbclipinterior}
-    },
-  title = Listing \thetcbcounter. #2,%
-  #1,
+	colback    = tex!5,
+	colframe   = tex,
+	label      = demo:#3,
+	label type = listing,
+	left       = 5mm,
+	listing and text,
+	minted language = tex,
+	overlay = {
+			\begin{tcbclipinterior}
+				\fill[tex!20] (frame.south west) rectangle ([xshift = 5mm] frame.north west);
+			\end{tcbclipinterior}
+		},
+	title = Listing \thetcbcounter. #2,%
+	#1,
 }
 
 \NewTCBInputListing[
-  list inside  = listing,
-  list type    = lstlisting,
-  use  counter = listing,
+	list inside  = listing,
+	list type    = lstlisting,
+	use  counter = listing,
 ]{\inputcode}{O{} O{} m m}{
-  colback      = #3!5,
-  colframe     = #3,
-  label   type = listing,
-  left = 5mm,
-  listing file = {#4},
-  listing only,
-  minted language = #3,
-  overlay = {
-      \begin{tcbclipinterior}
-        \fill[#3!20] (frame.south west) rectangle ([xshift = 5mm] frame.north west);
-      \end{tcbclipinterior}
-    },
-  title = Listing \thetcbcounter. #2,%
-  #1,
+	colback      = #3!5,
+	colframe     = #3,
+	label   type = listing,
+	left = 5mm,
+	listing file = {#4},
+	listing only,
+	minted language = #3,
+	overlay = {
+			\begin{tcbclipinterior}
+				\fill[#3!20] (frame.south west) rectangle ([xshift = 5mm] frame.north west);
+			\end{tcbclipinterior}
+		},
+	title = Listing \thetcbcounter. #2,%
+	#1,
 }
