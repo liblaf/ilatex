@@ -37,4 +37,4 @@ jobs:
           packages: scheme-full
       - if: github.ref == 'refs/heads/main'
         name: Deploy to GitHub Pages
-        run: make --jobs --output-sync docs-gh-deploy
+        run: make docs-gh-deploy

@@ -10,7 +10,6 @@ SRC       := src
 TEXMFHOME != kpsewhich -var-value=TEXMFHOME
 TMP       := /tmp
 
-DEMO_LIST          != find $(DEMO) "(" -name "*.tex" -or -name "*.sty" -or -name "*.cls" -or -name "*.bib" ")"
 DEMO_PDF_LIST      += $(DEMO)/article/chinese/chinese.pdf
 DEMO_PDF_LIST      += $(DEMO)/article/default/default.pdf
 DEMO_PDF_LIST      += $(DEMO)/article/manual/manual.pdf

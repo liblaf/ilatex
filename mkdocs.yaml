@@ -1,5 +1,11 @@
 site_name: iLaTeX
 
+site_url: https://liblaf.github.io/ilatex/
+
+repo_url: https://github.com/liblaf/ilatex
+
+edit_uri: edit/main/docs/
+
 theme:
   name: material
 
@@ -38,7 +44,3 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       fallback_to_build_date: true
-
-repo_url: https://github.com/liblaf/ilatex
-
-edit_uri: edit/main/docs/
