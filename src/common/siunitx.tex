@@ -8,14 +8,14 @@
 \AtBeginDocument{\RenewCommandCopy{\qty}{\SI}}
 
 \sisetup{
-  uncertainty-mode = separate,
+	uncertainty-mode = separate,
 }
 
 \ifdefstring{\i@lang}{zh}{
-  \sisetup{
-    list-final-separator = \ifmmode \ \else \space \fi \text{和} \ifmmode \ \fi,
-    list-pair-separator  = \ifmmode \ \else \space \fi \text{和} \ifmmode \ \fi,
-    per-mode             = symbol,
-    range-phrase         = \ifmmode \ \else \space \fi \text{--} \ifmmode \ \fi,
-  }
+	\sisetup{
+		list-final-separator = \ifmmode \ \else \space \fi \text{和} \ifmmode \ \fi,
+		list-pair-separator  = \ifmmode \ \else \space \fi \text{和} \ifmmode \ \fi,
+		per-mode             = symbol,
+		range-phrase         = \ifmmode \ \else \space \fi \text{--} \ifmmode \ \fi,
+	}
 }{}
