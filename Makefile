@@ -27,7 +27,7 @@ TARGET_LIST        += $(SRC_LIST:$(SRC)/%=$(TEXMFHOME)/tex/latex/$(NAME)/%)
 INSTALL             := @ install
 INSTALL_DATA        := $(INSTALL) -D --mode="u=rw,go=r" --no-target-directory --verbose
 LATEXMK             := env TEXINPUTS=$(abspath $(SRC)): latexmk
-LATEXMK_OPTIONS     := -xelatex -file-line-error -interaction=nonstopmode -shell-escape
+LATEXMK_OPTIONS     := -xelatex -file-line-error -interaction=nonstopmode -max-print-line=1000 -shell-escape
 
 all: docs get-deps
 

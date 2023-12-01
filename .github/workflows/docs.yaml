@@ -35,6 +35,8 @@ jobs:
         uses: teatimeguest/setup-texlive-action@v2
         with:
           packages: scheme-full
+      - name: Build
+        run: make docs-build
       - if: github.ref == 'refs/heads/main'
         name: Deploy to GitHub Pages
         run: make docs-gh-deploy
