@@ -41,7 +41,6 @@ words:
   - liblaf
   - ltjruby
   - luatexja
-  - lxml
   - mathrsfs
   - mkdocs
   - nofootinbib
@@ -52,6 +51,7 @@ words:
   - pybuilder
   - pycache
   - pyflow
+  - pymdownx
   - pypa
   - pypackages
   - pytxcode
@@ -72,6 +72,7 @@ words:
   - texpadtmp
   - theid
   - thmtools
+  - tqdm
   - typer
   - vhistory
   - wysiwym

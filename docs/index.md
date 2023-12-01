@@ -6,18 +6,18 @@ Minimal LaTeX Templates
 
 ### Article
 
-- [Chinese](./demo/article/chinese/chinese.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/article/chinese/chinese.tex))
-- [Default](./demo/article/default/default.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/default.tex))
-- [Manual](./demo/article/manual/manual.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/article/manual/manual.tex))
+- [Chinese](demo/article/chinese/chinese.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/article/chinese/chinese.tex))
+- [Default](demo/article/default/default.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/article/default/default.tex))
+- [Manual](demo/article/manual/manual.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/article/manual/manual.tex))
 
 ### Beamer
 
-- [Default](./demo/beamer/default/default.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/beamer/default/default.tex))
+- [Default](demo/beamer/default/default.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/beamer/default/default.tex))
 
 ### Coursework
 
-- [Default](./demo/work/default/default.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/default.tex))
-- [Chinese](./demo/work/chinese/chinese.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/work/chinese/chinese.tex))
+- [Default](demo/work/default/default.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/work/default/default.tex))
+- [Chinese](demo/work/chinese/chinese.pdf) ([Source Code](https://github.com/liblaf/ilatex/blob/main/demo/work/chinese/chinese.tex))
 
 ## Installation
 
@@ -33,7 +33,7 @@ There are two ways to install ilatex:
 
 ## Manual
 
-See [manual](./demo/article/manual/manual.pdf) and other [demos](#demos) for more details.
+See [manual](demo/article/manual/manual.pdf) and other [demos](#demos) for more details.
 
 ## Resources
 

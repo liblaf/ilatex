@@ -2,4 +2,5 @@ beautifulsoup4
 PyYAML
 requests
 rich
+tqdm
 typer

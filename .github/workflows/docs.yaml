@@ -9,6 +9,9 @@ permissions:
 env:
   PYTHON_VERSION: 3.x
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   docs:
     name: Documentation
@@ -34,4 +37,4 @@ jobs:
           packages: scheme-full
       - if: github.ref == 'refs/heads/main'
         name: Deploy to GitHub Pages
-        run: make --jobs docs-gh-deploy
+        run: make --jobs --output-sync docs-gh-deploy

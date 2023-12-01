@@ -1,9 +1,8 @@
-SHELL     := /bin/bash
-MAKEFLAGS += --jobs
+SHELL := /bin/bash
 
 NAME := ilatex
 
-CONFIG    := config
+DATA      := data
 DEMO      := demo
 DOCS      := docs
 SCRIPTS   := scripts
@@ -31,7 +30,7 @@ INSTALL_DATA        := $(INSTALL) -D --mode="u=rw,go=r" --no-target-directory --
 LATEXMK             := env TEXINPUTS=$(abspath $(SRC)): latexmk
 LATEXMK_OPTIONS     := -xelatex -file-line-error -interaction=nonstopmode -shell-escape
 
-all: docs
+all: docs get-deps
 
 clean:
 	@ $(RM) --recursive --verbose $(DOCS)/demo
@@ -48,11 +47,13 @@ docs-gh-deploy: docs
 docs-serve: docs
 	mkdocs serve
 
+get-deps: $(DOCS)/requirements.txt
+
 install: $(TARGET_LIST)
 	texhash
 
-pkg-to-subsection: $(SCRIPTS)/pkg-to-subsection.py $(CONFIG)/pkgs.yaml | $(DEMO)/article/manual/pkg
-	python $< --config=$(CONFIG)/pkgs.yaml --pkg-dir=$|
+pkg-to-subsection: $(SCRIPTS)/pkg-to-subsection.py $(DATA)/pkg.txt | $(DEMO)/article/manual/pkg
+	python $< --package-file=$(CONFIG)/pkgs.yaml --manual-dir=$|
 
 setup: $(DOCS)/requirements.txt $(SCRIPTS)/requirements.txt
 	micromamba --yes --name=$(NAME) create python
@@ -62,11 +63,14 @@ setup: $(DOCS)/requirements.txt $(SCRIPTS)/requirements.txt
 # Auxiliaries #
 ###############
 
-$(DEMO)/%.pdf: $(DEMO)/%.tex
+$(DEMO)/%.pdf: $(DEMO)/%.tex ALWAYS
 	cd $(@D) && $(LATEXMK) $(LATEXMK_OPTIONS) $(<F)
 
 $(DOCS)/demo/%.pdf: $(DEMO)/%.pdf
 	$(INSTALL_DATA) $< $@
+
+$(DOCS)/requirements.txt: mkdocs.yaml
+	mkdocs get-deps > $@
 
 $(LATEXINDENT_CONFIG): .latexindent.yaml
 	$(INSTALL_DATA) $< $@
@@ -77,3 +81,5 @@ $(HOME)/.indentconfig.yaml: $(LATEXINDENT_CONFIG)
 
 $(TEXMFHOME)/tex/latex/$(NAME)/%: $(SRC)/%
 	$(INSTALL_DATA) $< $@
+
+ALWAYS:

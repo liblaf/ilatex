@@ -1,23 +1,14 @@
+import pathlib
 import typing
 import urllib.parse
-from concurrent.futures import ThreadPoolExecutor
-from pathlib import Path
+from collections.abc import Sequence
+from concurrent import futures
+from typing import Annotated
 
 import bs4
 import requests
+import tqdm.rich
 import typer
-import yaml
-from rich.progress import (
-    BarColumn,
-    MofNCompleteColumn,
-    Progress,
-    SpinnerColumn,
-    TaskID,
-    TaskProgressColumn,
-    TextColumn,
-    TimeElapsedColumn,
-    TimeRemainingColumn,
-)
 
 
 def get_pkg_description(pkg: str) -> str:
@@ -36,9 +27,13 @@ def get_pkg_description(pkg: str) -> str:
 
 def generate_documentation(
     pkg: str,
-    pkg_dir: Path = Path.cwd() / "demo" / "article" / "manual" / "pkg",
+    manual_dir: pathlib.Path = pathlib.Path.cwd()
+    / "demo"
+    / "article"
+    / "manual"
+    / "pkg",
 ) -> None:
-    filepath: Path = pkg_dir / f"{pkg}.tex"
+    filepath: pathlib.Path = manual_dir / f"{pkg}.tex"
     if filepath.exists():
         text: str = filepath.read_text()
     else:
@@ -63,29 +58,24 @@ def generate_documentation(
 
 
 def main(
-    config_filepath: Path = typer.Option(
-        Path.cwd() / "data" / "pkgs.yaml", "-c", "--config"
-    ),
-    pkg_dir: Path = typer.Option(
-        Path.cwd() / "demo" / "article" / "manual" / "pkg", "-p", "--pkg-dir"
-    ),
+    package_filepath: Annotated[
+        pathlib.Path, typer.Option("-p", "--package-file")
+    ] = pathlib.Path.cwd() / "data" / "pkg.txt",
+    manual_dir: Annotated[
+        pathlib.Path, typer.Option("-m", "--manual-dir")
+    ] = pathlib.Path.cwd() / "demo" / "article" / "manual" / "pkg",
 ) -> None:
-    config: dict = yaml.safe_load(config_filepath.read_text())
-    pkgs: list[str] = typing.cast(list[str], config.get("packages"))
-    with Progress(
-        TextColumn("[bold blue]{task.description}"),
-        SpinnerColumn(),
-        BarColumn(),
-        MofNCompleteColumn(),
-        TaskProgressColumn(),
-        TimeElapsedColumn(),
-        TimeRemainingColumn(),
-    ) as progress:
-        task_id: TaskID = progress.add_task("Generating Documentation", total=len(pkgs))
-        with ThreadPoolExecutor() as executor:
-            generator = executor.map(generate_documentation, pkgs)
-            for _ in generator:
-                progress.advance(task_id=task_id)
+    pkgs: Sequence[str] = package_filepath.read_text().splitlines()
+    with futures.ThreadPoolExecutor() as executor:
+        for _ in tqdm.rich.tqdm(
+            futures.as_completed(
+                [
+                    executor.submit(generate_documentation, pkg, manual_dir)
+                    for pkg in pkgs
+                ]
+            )
+        ):
+            pass
 
 
 if __name__ == "__main__":

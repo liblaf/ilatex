@@ -1,4 +1,4 @@
-site_name: ilatex
+site_name: iLaTeX
 
 theme:
   name: material
@@ -7,56 +7,37 @@ theme:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
-        icon: material/brightness-4
-        name: Dark Mode
+        icon: material/brightness-3
+        name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/brightness-7
-        name: Light Mode
+        name: Switch to dark mode
 
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
     - navigation.tabs.sticky
-    # - navigation.sections
-    # - navigation.expand
-    - navigation.path
     - navigation.prune
     - navigation.indexes
     - toc.follow
-    # - toc.integrate
     - navigation.top
     - search.suggest
     - search.highlight
-    # - search.share
+    - search.share
+    - navigation.footer
     - content.action.edit
     - content.action.view
 
 plugins:
   - search
+  - social
   - git-revision-date-localized:
-      # enabled: true
-      # type: date
       enable_creation_date: true
       fallback_to_build_date: true
-  - git-committers:
-      # enabled: true
-      repository: liblaf/ilatex
-      branch: main
-  - git-authors
-  # - optimize:
-  #   enabled: true
-  #   concurrency: 16
-  #   optimize_png: true
-  #   optimize_png_speed: 4
-  #   optimize_png_strip: true
-  #   optimize_jpg: true
-  #   optimize_jpg_quality: 60
-  #   optimize_jpg_progressive: true
-  #   cache: true
-  #   cache_dir: .cache/plugins/optimize
 
 repo_url: https://github.com/liblaf/ilatex
 

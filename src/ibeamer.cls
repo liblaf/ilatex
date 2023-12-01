@@ -66,18 +66,19 @@
 \useinnertheme{rounded}
 \useinnertheme{circles}
 
-\setbeamercolor{palette primary}{fg = geekblue-1, bg = geekblue-6}
-\setbeamercolor{structure}{fg = geekblue-8, bg = geekblue-2}
-\setbeamercolor{alerted text}{fg = red-6}
-\setbeamercolor{block body alerted}{bg = red-2}
-\setbeamercolor{block body example}{bg = green-2}
-\setbeamercolor{block body}{bg = geekblue-2}
-\setbeamercolor{block title alerted}{fg = red-1, bg = red-6}
-\setbeamercolor{block title example}{fg = green-1, bg = green-6}
+\setbeamercolor{alerted text}{fg = red-600}
+\setbeamercolor{block body alerted}{bg = red-100}
+\setbeamercolor{block body example}{bg = green-100}
+\setbeamercolor{block body}{bg = cyan-100}
+\setbeamercolor{block title alerted}{fg = white, bg = red-500}
+\setbeamercolor{block title example}{fg = white, bg = green-500}
 \setbeamercolor{block title}{parent = palette primary}
 \setbeamercolor{footline}{parent = structure}
 \setbeamercolor{frametitle}{parent = structure}
-\setbeamercolor{titlelike}{parent = structure}
+\setbeamercolor{item}{fg = cyan-500}
+\setbeamercolor{palette primary}{fg = white, bg = cyan-500}
+\setbeamercolor{structure}{fg = cyan-700, bg = cyan-100}
+\setbeamercolor{titlelike}{fg = cyan-700, bg = cyan-100}
 
 \setbeamertemplate{footline}{
   \begin{beamercolorbox}{footline}

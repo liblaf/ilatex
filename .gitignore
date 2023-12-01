@@ -484,4 +484,4 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/latex,python
 
-docs/demo/**/*.pdf
+*.pdf

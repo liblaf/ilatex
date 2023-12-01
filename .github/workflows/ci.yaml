@@ -9,13 +9,15 @@ permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - id: release
-        name: Release
+      - name: Create GitHub Release
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple

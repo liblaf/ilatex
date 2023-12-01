@@ -1,146 +1,27 @@
 \RequirePackage{xcolor}
 
-\definecolor{red-1}{RGB}{255, 241, 240} % contrast (white): 1.10, contrast (black): 19.09
-\definecolor{red-2}{RGB}{255, 204, 199} % contrast (white): 1.43, contrast (black): 14.71
-\definecolor{red-3}{RGB}{255, 163, 158} % contrast (white): 1.91, contrast (black): 10.98
-\definecolor{red-4}{RGB}{255, 120, 117} % contrast (white): 2.56, contrast (black): 8.20
-\definecolor{red-5}{RGB}{255, 77, 79} % contrast (white): 3.27, contrast (black): 6.43
-\definecolor{red-6}{RGB}{245, 34, 45} % contrast (white): 4.08, contrast (black): 5.15
-\definecolor{red-7}{RGB}{207, 19, 34} % contrast (white): 5.57, contrast (black): 3.77
-\definecolor{red-8}{RGB}{168, 7, 26} % contrast (white): 7.75, contrast (black): 2.71
-\definecolor{red-9}{RGB}{130, 0, 20} % contrast (white): 10.72, contrast (black): 1.96
-\definecolor{red-10}{RGB}{92, 0, 17} % contrast (white): 14.35, contrast (black): 1.46
+\definecolor{cyan-50}{HTML}{ecfeff}
+\definecolor{cyan-100}{HTML}{cffafe}
+\definecolor{cyan-500}{HTML}{06b6d4}
+\definecolor{cyan-600}{HTML}{0891b2}
+\definecolor{cyan-700}{HTML}{0e7490}
+\definecolor{green-100}{HTML}{dcfce7}
+\definecolor{green-400}{HTML}{4ade80}
+\definecolor{green-500}{HTML}{22c55e}
+\definecolor{green-600}{HTML}{16a34a}
+\definecolor{red-100}{HTML}{fee2e2}
+\definecolor{red-500}{HTML}{ef4444}
+\definecolor{red-600}{HTML}{dc2626}
 
-\definecolor{volcano-1}{RGB}{255, 242, 232} % contrast (white): 1.10, contrast (black): 19.12
-\definecolor{volcano-2}{RGB}{255, 216, 191} % contrast (white): 1.33, contrast (black): 15.83
-\definecolor{volcano-3}{RGB}{255, 187, 150} % contrast (white): 1.64, contrast (black): 12.80
-\definecolor{volcano-4}{RGB}{255, 156, 110} % contrast (white): 2.05, contrast (black): 10.23
-\definecolor{volcano-5}{RGB}{255, 122, 69} % contrast (white): 2.59, contrast (black): 8.12
-\definecolor{volcano-6}{RGB}{250, 84, 28} % contrast (white): 3.31, contrast (black): 6.35
-\definecolor{volcano-7}{RGB}{212, 56, 13} % contrast (white): 4.80, contrast (black): 4.37
-\definecolor{volcano-8}{RGB}{173, 33, 2} % contrast (white): 7.01, contrast (black): 3.00
-\definecolor{volcano-9}{RGB}{135, 20, 0} % contrast (white): 9.86, contrast (black): 2.13
-\definecolor{volcano-10}{RGB}{97, 11, 0} % contrast (white): 13.49, contrast (black): 1.56
+\colorlet{emph}{cyan-600}
+\colorlet{link}{red-600}
+\colorlet{list}{cyan-600}
+\colorlet{tcolorbox}{green-400}
 
-\definecolor{orange-1}{RGB}{255, 247, 230} % contrast (white): 1.07, contrast (black): 19.70
-\definecolor{orange-2}{RGB}{255, 231, 186} % contrast (white): 1.21, contrast (black): 17.39
-\definecolor{orange-3}{RGB}{255, 213, 145} % contrast (white): 1.38, contrast (black): 15.18
-\definecolor{orange-4}{RGB}{255, 192, 105} % contrast (white): 1.62, contrast (black): 13.00
-\definecolor{orange-5}{RGB}{255, 169, 64} % contrast (white): 1.91, contrast (black): 11.00
-\definecolor{orange-6}{RGB}{250, 140, 22} % contrast (white): 2.38, contrast (black): 8.83
-\definecolor{orange-7}{RGB}{212, 107, 8} % contrast (white): 3.56, contrast (black): 5.91
-\definecolor{orange-8}{RGB}{173, 78, 0} % contrast (white): 5.43, contrast (black): 3.87
-\definecolor{orange-9}{RGB}{135, 56, 0} % contrast (white): 8.09, contrast (black): 2.60
-\definecolor{orange-10}{RGB}{97, 37, 0} % contrast (white): 11.84, contrast (black): 1.77
+\colorlet{paragraph}{cyan-600}
+\colorlet{section}{cyan-600}
+\colorlet{subsection}{cyan-600}
+\colorlet{subsubsection}{cyan-600}
 
-\definecolor{gold-1}{RGB}{255, 251, 230} % contrast (white): 1.04, contrast (black): 20.19
-\definecolor{gold-2}{RGB}{255, 241, 184} % contrast (white): 1.13, contrast (black): 18.53
-\definecolor{gold-3}{RGB}{255, 229, 143} % contrast (white): 1.25, contrast (black): 16.86
-\definecolor{gold-4}{RGB}{255, 214, 102} % contrast (white): 1.39, contrast (black): 15.06
-\definecolor{gold-5}{RGB}{255, 197, 61} % contrast (white): 1.58, contrast (black): 13.31
-\definecolor{gold-6}{RGB}{250, 173, 20} % contrast (white): 1.90, contrast (black): 11.05
-\definecolor{gold-7}{RGB}{212, 136, 6} % contrast (white): 2.87, contrast (black): 7.32
-\definecolor{gold-8}{RGB}{173, 104, 0} % contrast (white): 4.41, contrast (black): 4.76
-\definecolor{gold-9}{RGB}{135, 77, 0} % contrast (white): 6.79, contrast (black): 3.09
-\definecolor{gold-10}{RGB}{97, 52, 0} % contrast (white): 10.50, contrast (black): 2.00
-
-\definecolor{yellow-1}{RGB}{254, 255, 230} % contrast (white): 1.02, contrast (black): 20.66
-\definecolor{yellow-2}{RGB}{255, 255, 184} % contrast (white): 1.04, contrast (black): 20.25
-\definecolor{yellow-3}{RGB}{255, 251, 143} % contrast (white): 1.08, contrast (black): 19.45
-\definecolor{yellow-4}{RGB}{255, 245, 102} % contrast (white): 1.13, contrast (black): 18.50
-\definecolor{yellow-5}{RGB}{255, 236, 61} % contrast (white): 1.21, contrast (black): 17.32
-\definecolor{yellow-6}{RGB}{250, 219, 20} % contrast (white): 1.38, contrast (black): 15.21
-\definecolor{yellow-7}{RGB}{212, 177, 6} % contrast (white): 2.08, contrast (black): 10.09
-\definecolor{yellow-8}{RGB}{173, 139, 0} % contrast (white): 3.25, contrast (black): 6.47
-\definecolor{yellow-9}{RGB}{135, 104, 0} % contrast (white): 5.24, contrast (black): 4.01
-\definecolor{yellow-10}{RGB}{97, 71, 0} % contrast (white): 8.72, contrast (black): 2.41
-
-\definecolor{lime-1}{RGB}{252, 255, 230} % contrast (white): 1.02, contrast (black): 20.59
-\definecolor{lime-2}{RGB}{244, 255, 184} % contrast (white): 1.06, contrast (black): 19.84
-\definecolor{lime-3}{RGB}{234, 255, 143} % contrast (white): 1.09, contrast (black): 19.20
-\definecolor{lime-4}{RGB}{211, 242, 97} % contrast (white): 1.26, contrast (black): 16.64
-\definecolor{lime-5}{RGB}{186, 230, 55} % contrast (white): 1.45, contrast (black): 14.46
-\definecolor{lime-6}{RGB}{160, 217, 17} % contrast (white): 1.69, contrast (black): 12.43
-\definecolor{lime-7}{RGB}{124, 179, 5} % contrast (white): 2.53, contrast (black): 8.31
-\definecolor{lime-8}{RGB}{91, 140, 0} % contrast (white): 4.04, contrast (black): 5.20
-\definecolor{lime-9}{RGB}{63, 102, 0} % contrast (white): 6.75, contrast (black): 3.11
-\definecolor{lime-10}{RGB}{37, 64, 0} % contrast (white): 11.59, contrast (black): 1.81
-
-\definecolor{green-1}{RGB}{246, 255, 237} % contrast (white): 1.03, contrast (black): 20.45
-\definecolor{green-2}{RGB}{217, 247, 190} % contrast (white): 1.17, contrast (black): 18.00
-\definecolor{green-3}{RGB}{183, 235, 143} % contrast (white): 1.37, contrast (black): 15.29
-\definecolor{green-4}{RGB}{149, 222, 100} % contrast (white): 1.63, contrast (black): 12.91
-\definecolor{green-5}{RGB}{115, 209, 61} % contrast (white): 1.92, contrast (black): 10.92
-\definecolor{green-6}{RGB}{82, 196, 26} % contrast (white): 2.27, contrast (black): 9.27
-\definecolor{green-7}{RGB}{56, 158, 13} % contrast (white): 3.46, contrast (black): 6.06
-\definecolor{green-8}{RGB}{35, 120, 4} % contrast (white): 5.59, contrast (black): 3.76
-\definecolor{green-9}{RGB}{19, 82, 0} % contrast (white): 9.40, contrast (black): 2.23
-\definecolor{green-10}{RGB}{9, 43, 0} % contrast (white): 15.47, contrast (black): 1.36
-
-\definecolor{cyan-1}{RGB}{230, 255, 251} % contrast (white): 1.05, contrast (black): 20.06
-\definecolor{cyan-2}{RGB}{181, 245, 236} % contrast (white): 1.22, contrast (black): 17.24
-\definecolor{cyan-3}{RGB}{135, 232, 222} % contrast (white): 1.44, contrast (black): 14.63
-\definecolor{cyan-4}{RGB}{92, 219, 211} % contrast (white): 1.68, contrast (black): 12.53
-\definecolor{cyan-5}{RGB}{54, 207, 201} % contrast (white): 1.92, contrast (black): 10.93
-\definecolor{cyan-6}{RGB}{19, 194, 194} % contrast (white): 2.21, contrast (black): 9.52
-\definecolor{cyan-7}{RGB}{8, 151, 156} % contrast (white): 3.55, contrast (black): 5.92
-\definecolor{cyan-8}{RGB}{0, 109, 117} % contrast (white): 6.10, contrast (black): 3.44
-\definecolor{cyan-9}{RGB}{0, 71, 79} % contrast (white): 10.43, contrast (black): 2.01
-\definecolor{cyan-10}{RGB}{0, 35, 41} % contrast (white): 16.50, contrast (black): 1.27
-
-\definecolor{blue-1}{RGB}{230, 244, 255} % contrast (white): 1.12, contrast (black): 18.75
-\definecolor{blue-2}{RGB}{186, 224, 255} % contrast (white): 1.38, contrast (black): 15.19
-\definecolor{blue-3}{RGB}{145, 202, 255} % contrast (white): 1.74, contrast (black): 12.10
-\definecolor{blue-4}{RGB}{105, 177, 255} % contrast (white): 2.25, contrast (black): 9.33
-\definecolor{blue-5}{RGB}{64, 150, 255} % contrast (white): 2.99, contrast (black): 7.02
-\definecolor{blue-6}{RGB}{22, 119, 255} % contrast (white): 4.10, contrast (black): 5.12
-\definecolor{blue-7}{RGB}{9, 88, 217} % contrast (white): 6.16, contrast (black): 3.41
-\definecolor{blue-8}{RGB}{0, 62, 179} % contrast (white): 8.97, contrast (black): 2.34
-\definecolor{blue-9}{RGB}{0, 44, 140} % contrast (white): 12.08, contrast (black): 1.74
-\definecolor{blue-10}{RGB}{0, 29, 102} % contrast (white): 15.36, contrast (black): 1.37
-
-\definecolor{geekblue-1}{RGB}{240, 245, 255} % contrast (white): 1.09, contrast (black): 19.21
-\definecolor{geekblue-2}{RGB}{214, 228, 255} % contrast (white): 1.28, contrast (black): 16.40
-\definecolor{geekblue-3}{RGB}{173, 198, 255} % contrast (white): 1.71, contrast (black): 12.30
-\definecolor{geekblue-4}{RGB}{133, 165, 255} % contrast (white): 2.38, contrast (black): 8.82
-\definecolor{geekblue-5}{RGB}{89, 126, 247} % contrast (white): 3.65, contrast (black): 5.75
-\definecolor{geekblue-6}{RGB}{47, 84, 235} % contrast (white): 5.85, contrast (black): 3.59
-\definecolor{geekblue-7}{RGB}{29, 57, 196} % contrast (white): 8.63, contrast (black): 2.43
-\definecolor{geekblue-8}{RGB}{16, 35, 158} % contrast (white): 11.96, contrast (black): 1.76
-\definecolor{geekblue-9}{RGB}{6, 17, 120} % contrast (white): 15.45, contrast (black): 1.36
-\definecolor{geekblue-10}{RGB}{3, 8, 82} % contrast (white): 18.10, contrast (black): 1.16
-
-\definecolor{purple-1}{RGB}{249, 240, 255} % contrast (white): 1.11, contrast (black): 18.94
-\definecolor{purple-2}{RGB}{239, 219, 255} % contrast (white): 1.29, contrast (black): 16.25
-\definecolor{purple-3}{RGB}{211, 173, 247} % contrast (white): 1.89, contrast (black): 11.09
-\definecolor{purple-4}{RGB}{179, 127, 235} % contrast (white): 2.94, contrast (black): 7.15
-\definecolor{purple-5}{RGB}{146, 84, 222} % contrast (white): 4.62, contrast (black): 4.55
-\definecolor{purple-6}{RGB}{114, 46, 209} % contrast (white): 6.94, contrast (black): 3.03
-\definecolor{purple-7}{RGB}{83, 29, 171} % contrast (white): 9.85, contrast (black): 2.13
-\definecolor{purple-8}{RGB}{57, 16, 133} % contrast (white): 13.23, contrast (black): 1.59
-\definecolor{purple-9}{RGB}{34, 7, 94} % contrast (white): 16.67, contrast (black): 1.26
-\definecolor{purple-10}{RGB}{18, 3, 56} % contrast (white): 19.16, contrast (black): 1.10
-
-\definecolor{magenta-1}{RGB}{255, 240, 246} % contrast (white): 1.10, contrast (black): 19.05
-\definecolor{magenta-2}{RGB}{255, 214, 231} % contrast (white): 1.31, contrast (black): 16.02
-\definecolor{magenta-3}{RGB}{255, 173, 210} % contrast (white): 1.73, contrast (black): 12.16
-\definecolor{magenta-4}{RGB}{255, 133, 192} % contrast (white): 2.24, contrast (black): 9.37
-\definecolor{magenta-5}{RGB}{247, 89, 171} % contrast (white): 3.01, contrast (black): 6.97
-\definecolor{magenta-6}{RGB}{235, 47, 150} % contrast (white): 3.90, contrast (black): 5.38
-\definecolor{magenta-7}{RGB}{196, 29, 127} % contrast (white): 5.48, contrast (black): 3.83
-\definecolor{magenta-8}{RGB}{158, 16, 104} % contrast (white): 7.70, contrast (black): 2.73
-\definecolor{magenta-9}{RGB}{120, 6, 80} % contrast (white): 10.82, contrast (black): 1.94
-\definecolor{magenta-10}{RGB}{82, 3, 57} % contrast (white): 14.68, contrast (black): 1.43
-
-\colorlet{emph}{geekblue-6}
-\colorlet{link}{magenta-6}
-\colorlet{list}{geekblue-6}
-\colorlet{tcolorbox}{green-6}
-
-\colorlet{paragraph}{geekblue-6}
-\colorlet{section}{geekblue-6}
-\colorlet{subsection}{geekblue-6}
-\colorlet{subsubsection}{geekblue-6}
-
-\colorlet{lemma}{green-6}
-\colorlet{theorem}{volcano-6}
+\colorlet{lemma}{green-600}
+\colorlet{theorem}{green-600}
