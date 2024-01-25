@@ -16,21 +16,25 @@ ci:
 
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.11
+    rev: v0.1.14
     hooks:
       - id: ruff
         args:
           - --fix
       - id: ruff-format
   - repo: https://github.com/cmhughes/latexindent.pl
-    rev: V3.23.5
+    rev: V3.23.6
     hooks:
       - id: latexindent
+        files: \.(tex|sty|cls|bib)$
+        types:
+          - text
         args:
           - --overwriteIfDifferent
           - --silent
           - --local
           - --cruft=/tmp/latexindent
+          - --modifylinebreaks
           - --GCString
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v3.13.0
