@@ -1,4 +1,70 @@
 ci:
   autofix_commit_msg: "ci(pre-commit): auto fixes from pre-commit hooks"
   autoupdate_commit_msg: "ci(pre-commit): update pre-commit hooks"
-repos: []
+  skip:
+    - cspell
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.2.2
+    hooks:
+      - id: ruff
+        args:
+          - --fix
+      - id: ruff-format
+  - repo: https://github.com/cmhughes/latexindent.pl
+    rev: V3.23.6
+    hooks:
+      - id: latexindent-conda
+        files: \.(tex|sty|cls|bib)$
+        types:
+          - text
+        args:
+          - --overwriteIfDifferent
+          - --silent
+          - --local
+          - --cruft=/tmp/latexindent
+          - --modifylinebreaks
+          - --GCString
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        stages:
+          - pre-commit
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-json
+        exclude: ^tsconfig\.json$
+      - id: check-merge-conflict
+      - id: check-vcs-permalinks
+      - id: check-yaml
+        args:
+          - --unsafe
+      - id: debug-statements
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.28.0
+    hooks:
+      - id: check-dependabot
+      - id: check-github-workflows
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.6.4
+    hooks:
+      - id: fix-ligatures
+      - id: fix-spaces
+      - id: forbid-bidi-controls
+  - repo: https://github.com/streetsidesoftware/cspell-cli
+    rev: v8.4.0
+    hooks:
+      - id: cspell
