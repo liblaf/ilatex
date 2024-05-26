@@ -12,7 +12,7 @@ repos:
           - --fix
       - id: ruff-format
   - repo: https://github.com/cmhughes/latexindent.pl
-    rev: V3.24
+    rev: V3.24.1
     hooks:
       - id: latexindent-conda
         files: \.(tex|sty|cls|bib)$
@@ -26,11 +26,11 @@ repos:
           - --modifylinebreaks
           - --GCString
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v3.25.0
+    rev: v3.26.0
     hooks:
       - id: commitizen
   - repo: https://github.com/liblaf/pre-commit-hooks
-    rev: v0.1.1
+    rev: dev
     hooks:
       - id: prettier
         exclude: (.*-lock\..*)|(.*\.lock)$
@@ -67,6 +67,6 @@ repos:
       - id: fix-spaces
       - id: forbid-bidi-controls
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.8.0
+    rev: v8.8.1
     hooks:
       - id: cspell
