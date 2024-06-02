@@ -5,7 +5,7 @@ ci:
     - cspell
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.4.5
     hooks:
       - id: ruff
         args:
@@ -26,7 +26,7 @@ repos:
           - --modifylinebreaks
           - --GCString
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v3.26.0
+    rev: v3.27.0
     hooks:
       - id: commitizen
   - repo: https://github.com/liblaf/pre-commit-hooks
@@ -57,7 +57,7 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.3
+    rev: 0.28.4
     hooks:
       - id: check-github-workflows
   - repo: https://github.com/sirosen/texthooks
@@ -67,6 +67,6 @@ repos:
       - id: fix-spaces
       - id: forbid-bidi-controls
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.8.1
+    rev: v8.8.2
     hooks:
       - id: cspell
