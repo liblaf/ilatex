@@ -5,14 +5,14 @@ ci:
     - cspell
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.8
+    rev: v0.4.9
     hooks:
       - id: ruff
         args:
           - --fix
       - id: ruff-format
   - repo: https://github.com/cmhughes/latexindent.pl
-    rev: V3.24.1
+    rev: V3.24.2
     hooks:
       - id: latexindent-conda
         files: \.(tex|sty|cls|bib)$
@@ -57,7 +57,7 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.4
+    rev: 0.28.5
     hooks:
       - id: check-github-workflows
   - repo: https://github.com/sirosen/texthooks
