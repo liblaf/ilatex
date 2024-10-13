@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.5.0](https://github.com/liblaf/ilatex/compare/v0.4.1...v0.5.0) (2024-10-13)
+
+
+### Features
+
+* **docs:** add build step to GitHub Actions workflow ([421afbd](https://github.com/liblaf/ilatex/commit/421afbd615c692f6b0750fe7a5f9fbfa359bd3c3))
+* **ibeamer:** add `ibeamer` class ([8f4695b](https://github.com/liblaf/ilatex/commit/8f4695b81658c276d15c3a8c0ec10d16b53aa40d))
+
+
+### Bug Fixes
+
+* config latexindent for {gather*} ([617cd69](https://github.com/liblaf/ilatex/commit/617cd69aaa9bbfa18eae5f310f00573e2a8e8ed2))
+* config palette ([cb9d71d](https://github.com/liblaf/ilatex/commit/cb9d71dea6e030b0119818fd50a4cbd282b75092))
+* **icode:** pretty code listing ([1e75bee](https://github.com/liblaf/ilatex/commit/1e75bee3a0ca379f8bb2a876a3b58ad1fd01bae9))
+
 ## [0.4.1](https://github.com/liblaf/ilatex/compare/v0.4.0...v0.4.1) (2023-05-26)
 
 ### Bug Fixes
