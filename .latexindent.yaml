@@ -36,8 +36,8 @@ modifyLineBreaks:
     LSqBStartsOnOwnLine: -1
   mandatoryArguments:
     LCuBStartsOnOwnLine: -1
-  commands:
-    CommandNameFinishesWithLineBreak: -1
+  # commands:
+  #   CommandNameFinishesWithLineBreak: -1
   namedGroupingBracesBrackets:
     NameFinishesWithLineBreak: -1
   items:
