@@ -1,0 +1,16 @@
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\DeclareDocumentCommand{\headersize}{}{\fontsize{10pt}{12pt}\selectfont}
+
+\fancyhead[L]{\headersize \thecourse}
+\fancyhead[C]{}
+\fancyhead[R]{\headersize \@date}
+\fancyfoot[L]{\headersize \theinstitute \\ \theemail}
+\fancyfoot[C]{}
+\fancyfoot[R]{\headersize Page \thepage{} of \pageref{LastPage}}
