@@ -35,7 +35,7 @@ jobs:
           token: ${{ github.token }}
       - id: ml
         name: MegaLinter
-        uses: oxsecurity/megalinter@v8
+        uses: oxsecurity/megalinter@v9
         # ref: <https://megalinter.io/latest/config-file/>
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
